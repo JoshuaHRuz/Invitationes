@@ -1,41 +1,33 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
+import { NavbarComponent } from '../../../shared/components/navbar/navbar.component';
 
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    MatToolbarModule,
-    MatButtonModule
-  ],
+  imports: [CommonModule, RouterModule, NavbarComponent],
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements OnInit, OnDestroy {
   slides = [
-    { color: '#ff7e5f', text: 'Invitaciones para Bodas' },
-    { color: '#feb47b', text: 'Fiestas de Cumpleaños' },
-    { color: '#2ab7ca', text: 'Eventos Corporativos' },
-    { color: '#8e44ad', text: 'Graduaciones y Aniversarios' }
+    { color: '#4a148c', text: 'Diseños Elegantes y Modernos' }, // A deep, rich purple
+    { color: '#880e4f', text: 'Personalización al Instante' }, // A sophisticated, deep pink
+    { color: '#6a1b9a', text: 'Confirma Asistencia Fácilmente' } // Our primary purple, for consistency
   ];
-
   currentSlide = 0;
   private intervalId: any;
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.intervalId = setInterval(() => {
       this.currentSlide = (this.currentSlide + 1) % this.slides.length;
-    }, 5000); // Cambia cada 5 segundos
+    }, 5000); // Change slide every 5 seconds
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     if (this.intervalId) {
       clearInterval(this.intervalId);
     }
   }
-}
+} 

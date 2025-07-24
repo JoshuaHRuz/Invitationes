@@ -1,13 +1,4 @@
-<mat-toolbar color="primary" class="navbar">
-  <span class="navbar-brand">Invitaciones</span>
-  <div class="navbar-links">
-    <a href="#">Inicio</a>
-    <a href="#">Precios</a>
-    <a href="#">Contacto</a>
-  </div>
-  <span class="navbar-spacer"></span>
-  <a routerLink="/auth/login" class="btn btn-primary">Iniciar Sesión</a>
-</mat-toolbar>
+<app-navbar></app-navbar>
 
 <div class="carousel-container">
   @for (slide of slides; track slide.color; let i = $index) {

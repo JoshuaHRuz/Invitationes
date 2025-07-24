@@ -1,9 +1,3 @@
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .navbar-brand {
   font-size: 1.5rem;
   font-weight: bold;
@@ -27,8 +21,11 @@
 .carousel-container {
   position: relative;
   width: 100%;
-  height: calc(100vh - 64px); /* Altura total menos el navbar */
+  height: 100vh; /* Make it full height */
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .carousel-slide {
@@ -38,10 +35,11 @@
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   opacity: 0;
   transition: opacity 1s ease-in-out;
+  color: white; /* Ensure text is always white */
   background-size: cover;
   background-position: center;
 }
@@ -61,8 +59,10 @@
 .slide-content h1 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
+  color: inherit; /* Inherit color from parent */
 }
 
 .slide-content p {
   font-size: 1.25rem;
+  color: inherit; /* Inherit color from parent */
 } 
