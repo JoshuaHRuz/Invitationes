@@ -1,0 +1,24 @@
+<mat-toolbar color="primary" class="navbar">
+  <span class="navbar-brand">Invitaciones</span>
+  <div class="navbar-links">
+    <a href="#">Inicio</a>
+    <a href="#">Precios</a>
+    <a href="#">Contacto</a>
+  </div>
+  <span class="navbar-spacer"></span>
+  <button mat-raised-button routerLink="/login">Iniciar Sesión</button>
+</mat-toolbar>
+
+<div class="carousel-container">
+  @for (slide of slides; track slide.color; let i = $index) {
+    <div 
+      class="carousel-slide" 
+      [style.backgroundColor]="slide.color"
+      [class.active]="i === currentSlide">
+      <div class="slide-content">
+        <h1>{{ slide.text }}</h1>
+        <p>Crea invitaciones memorables con nosotros.</p>
+      </div>
+    </div>
+  }
+</div> 
