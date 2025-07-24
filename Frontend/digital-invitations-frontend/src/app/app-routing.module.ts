@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 export const routes: Routes = [
   { path: '', loadChildren: () => import('./features/landing/landing.module').then(m => m.LandingModule) },
-  { path: 'login', loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule) },
+  { path: 'auth', loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule) },
   { path: 'client-dashboard', loadChildren: () => import('./features/client-dashboard/client-dashboard.module').then(m => m.ClientDashboardModule) },
   { path: 'builder-dashboard', loadChildren: () => import('./features/builder-dashboard/builder-dashboard.module').then(m => m.BuilderDashboardModule) },
   { path: 'admin-dashboard', loadChildren: () => import('./features/admin-dashboard/admin-dashboard.module').then(m => m.AdminDashboardModule) },
