@@ -1,0 +1,43 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 450px;
+}
+
+.card-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.btn-block {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+}
+
+.login-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.forgot-password-link {
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.login-actions .btn-secondary {
+  flex-grow: 1;
+  min-width: 150px;
+}
