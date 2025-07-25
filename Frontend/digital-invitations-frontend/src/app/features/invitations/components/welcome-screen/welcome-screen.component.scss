@@ -1,0 +1,85 @@
+.mascara-play {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f7f3f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.welcome-title {
+  font-family: 'Playfair Display', serif; /* Una fuente elegante para el título */
+  font-size: 4rem;
+  color: var(--primary-dark-color);
+  line-height: 1.2;
+}
+
+.cont-flores {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.flor-esquina {
+  position: absolute;
+  width: 25%; /* Ajusta el tamaño según sea necesario */
+  max-width: 200px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.esquina-tl {
+  top: 0;
+  left: 0;
+  transform: rotate(0deg);
+}
+.esquina-tr {
+  top: 0;
+  right: 0;
+  transform: rotate(90deg);
+}
+.esquina-br {
+  bottom: 0;
+  right: 0;
+  transform: rotate(180deg);
+}
+.esquina-bl {
+  bottom: 0;
+  left: 0;
+  transform: rotate(270deg);
+}
+
+.m-auto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 10;
+  position: relative;
+}
+
+.btn-invitacion {
+  font-size: 1.5rem; /* Ajuste de tamaño */
+  padding: 12px 35px;
+  border-radius: 50px;
+  background-color: var(--primary-color);
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  border: 2px solid var(--primary-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--primary-dark-color);
+    transform: scale(1.05);
+  }
+}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap'); 
