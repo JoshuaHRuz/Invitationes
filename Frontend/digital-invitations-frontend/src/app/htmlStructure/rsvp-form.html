@@ -1,0 +1,288 @@
+<div class="contact-form bg-1-img c-principal p-0 borderbottom" id="seccasistencia">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mt-5">
+                <div class="wthree_title_agile">
+                    <h1 class="font-6 c-cafe text-uppercase titulo-6 _animate__zoomIn">Confirmar Asistencia</h1>
+                    <span class="linea _animate__flipInX"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center align-items-center d-flex m-0 p-0">
+            <div class="col-xl-12 col-lg-12 p-0">
+                <div class="form-wrapper p-0">
+                    <!-- Información despues de responder la invitación -->
+                    <div class="row mt-5 px-3" id="paseEntrada" style="display: none">
+                        <!-- Titulo pase de entrada -->
+                        <div class="row w-100 mx-auto">
+                            <div class="col-md-12">
+                                <div class="select-itms">
+                                    <div class="form-box subject-icon text-center">
+                                        <label for="boletos" class="m-0 boletos-disponibles">
+                                            <h5 class="font-conf text-center c-principal">Pase de entrada</h5>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container-boletos container-pase py-5">
+                            <!-- Pase de entrada -->
+                            <div class="pase-entrada-contenedor" id="paseEntradaContenedor" style="width: 90%; max-width: 420px; margin: auto; display: none;">
+
+                            </div>
+                            <div class="centrar mb-4 px-2" id="indicacionParaDescargarConfirmador">
+
+                            </div>
+                            <div class="centrar" id="paseEntradaConfirmador"><img src="data:," class="img-fluid foto-pase-entrada child"></div>
+                        </div>
+                        <div class="descargar-pase centrar mt-5">
+                            <a class="btn-descargar-pase" id="btnDescargarConfirmador" href="data:," download="pase-entrada.png">Descargar pase</a>
+                        </div>
+                    </div>
+
+                    <!-- Información de los boletos -->
+                    <form id="datosboda" action="#" method="POST">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-box mb-30 mt-5">
+                                    <h3 class="text-center font-conf c-principal">Invitación para:</h3>
+                                    <h2 class="text-center font-conf c-titulo" id="invitacionPara">Invitación de prueba</h2>
+                                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" hidden="">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Boletos disponibles  -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="select-itms">
+                                    <div class="form-box subject-icon text-center">
+                                        <label for="boletos" class="m-0 boletos-disponibles">
+                                            <h5 class="font-conf text-center c-principal font-conf">
+                                                <span id="boletitosTotales"></span><span id="boletoSP">Boletos disponibles</span>
+                                            </h5>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-boletos">
+                            <div id="invitados">
+                                <div class="row boleto my-4">
+                                    <div class="boleto_foto text-center">
+                                        <img src="images/elementos/portada-1.png" alt="foto evento" class="boleto_img mb-2">
+                                        <span class="boleto-line line-fecha"></span>
+                                        <div class="boleto_fecha">
+                                            <p class="dia-semana font-conf">Sábado</p>
+                                            <p class="mes-dia font-conf">04 Feb</p>
+                                            <p class="año font-conf">2025</p>
+                                        </div>
+                                        <span class="boleto-line line-fecha"></span>
+                                    </div>
+                                    <div class="boleto_informacion">
+                                        <p class="boleto_numero font-conf">Boleto #1</p>
+                                        <span class="boleto-line"></span>
+                                        <p class="nombre-evento font-conf">Boda Ana y Mario </p>
+                                        <div class="boleto-invitado text-center">
+                                            <label for="invitado" class="invitado font-conf">Invitado:</label>
+                                            <input class="invitado-l font-conf invitado-info" value="Sarai Flores" disabled="">
+                                            <span class="boleto-line2"></span>
+                                        </div>
+                                        <div class="boleto-confirmacion text-center mt-4 centrar">
+                                            <div class="input-radio mx-3">
+                                                <label class="control control-radio confirmacion-txt font-conf" for="asistenciasi_1">
+                                                    Si asistiré
+                                                    <input type="radio" name="asistencia_s1" placeholder="asistencia" class="asistenciasi mx-auto" value="1" id="asistenciasi_1" checked>
+                                                    <div class="control_indicator"></div>
+                                                </label>
+                                            </div>
+                                            <div class="input-radio mx-3">
+                                                <label class="control control-radio confirmacion-txt font-conf" for="asistenciano_1">
+                                                    No asistiré
+                                                    <input type="radio" name="asistencia_s1" placeholder="asistencia" class="asistencia mx-auto" value="0" id="asistenciano_1">
+                                                    <div class="control_indicator"></div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <span class="boleto-line"></span>
+                                    </div>
+                                </div>
+                                <div class="row boleto my-4">
+                                    <div class="boleto_foto text-center">
+                                        <img src="images/elementos/portada-1.png" alt="foto evento" class="boleto_img mb-2">
+                                        <span class="boleto-line line-fecha"></span>
+                                        <div class="boleto_fecha">
+                                            <p class="dia-semana font-conf">Sábado</p>
+                                            <p class="mes-dia font-conf">04 Feb</p>
+                                            <p class="año font-conf">2025</p>
+                                        </div>
+                                        <span class="boleto-line line-fecha"></span>
+                                    </div>
+                                    <div class="boleto_informacion">
+                                        <p class="boleto_numero font-conf">Boleto #2</p>
+                                        <span class="boleto-line"></span>
+                                        <p class="nombre-evento font-conf">Boda Ana y Mario</p>
+                                        <div class="boleto-invitado text-center">
+                                            <label for="invitado" class="invitado font-conf">Invitado:</label>
+                                            <input class="invitado-l font-conf invitado-info" value="Mauricio Garcia" disabled="">
+                                            <span class="boleto-line2"></span>
+                                        </div>
+                                        <div class="boleto-confirmacion text-center mt-4 centrar">
+                                            <div class="input-radio mx-3">
+                                                <label class="control control-radio confirmacion-txt font-conf" for="asistenciasi_2">
+                                                    Si asistiré
+                                                    <input type="radio" name="asistencia_s2" placeholder="asistencia" class="asistenciasi mx-auto" value="1" id="asistenciasi_2" checked>
+                                                    <div class="control_indicator"></div>
+                                                </label>
+                                            </div>
+                                            <div class="input-radio mx-3">
+                                                <label class="control control-radio confirmacion-txt font-conf" for="asistenciano_2">
+                                                    No asistiré
+                                                    <input type="radio" name="asistencia_s2" placeholder="asistencia" class="asistencia mx-auto" value="0" id="asistenciano_2">
+                                                    <div class="control_indicator"></div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <span class="boleto-line"></span>
+                                    </div>
+                                </div>
+                                <div class="row boleto my-4">
+                                    <div class="boleto_foto text-center">
+                                        <img src="images/elementos/portada-1.png" alt="foto evento" class="boleto_img mb-2">
+                                        <!--<p class="pase-infantil font-conf" id="paseInfantil">Infantil</p>-->
+                                        <span class="boleto-line line-fecha"></span>
+                                        <div class="boleto_fecha">
+                                            <p class="dia-semana font-conf">Sábado</p>
+                                            <p class="mes-dia font-conf">04 Feb</p>
+                                            <p class="año font-conf">2025</p>
+                                        </div>
+                                        <span class="boleto-line line-fecha"></span>
+                                    </div>
+                                    <div class="boleto_informacion">
+                                        <p class="boleto_numero font-conf">Boleto #3</p>
+                                        <span class="boleto-line"></span>
+                                        <p class="nombre-evento font-conf">Boda Ana y Mario</p>
+                                        <div class="boleto-invitado text-center">
+                                            <label for="invitado" class="invitado font-conf">Invitado:</label>
+                                            <input type="email" class="holder invitado-i mt-2 input-confirmador invitado-info" placeholder="Ingresa tu nombre" value="Carlos">
+                                        </div>
+                                        <div class="boleto-confirmacion text-center mt-3 centrar">
+                                            <div class="input-radio mx-3">
+                                                <label class="control control-radio confirmacion-txt font-conf" for="asistenciasi_3">
+                                                    Si asistiré
+                                                    <input type="radio" name="asistencia_s3" placeholder="asistencia" class="asistenciasi mx-auto" value="1" id="asistenciasi_3" checked>
+                                                    <div class="control_indicator"></div>
+                                                </label>
+                                            </div>
+                                            <div class="input-radio mx-3">
+                                                <label class="control control-radio confirmacion-txt font-conf" for="asistenciano_3">
+                                                    No asistiré
+                                                    <input type="radio" name="asistencia_s3" placeholder="asistencia" class="asistencia mx-auto" value="0" id="asistenciano_3">
+                                                    <div class="control_indicator"></div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <span class="boleto-line"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Dedica un mensaje -->
+                        <div class="row mt-3 c-principal">
+                            <div class="col-lg-12 p-0">
+                                <div class="form-box message-icon text-center mb-30">
+                                    <input type="text" id="tokenGoogle" name="tokenGoogle" hidden="">
+                                    <p class="font-conf text-center c-principal my-3"><b>Dedica un lindo mensaje...</b></p>
+                                    <textarea name="mensaje" id="mensaje" placeholder="Dedica un lindo mensaje..." class="dedica-mensaje"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Responder invitación -->
+        <div class="row mb-5">
+            <button class="btn mt-4 mx-auto bg-btn-color text-center btn-modal" data-toggle="modal" data-target="#infoAdicional" id="btninfoAdicional">Responder invitación</button>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="infoAdicional" tabindex="-1" role="dialog" aria-labelledby="infoAdicionalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content bg-modal-info font-conf">
+            <div class="modal-header py-3">
+                <h5 class="modal-title font-conf c-principal w-100 text-center text-center" id="infoAdicionalLabel">Información</h5>
+                <button type="button" class="close btnCerrarInfoAd" data-dismiss="modal" aria-label="Close"
+                        style="color: #000000 !important; padding: 0 !important; margin: 0 !important; text-shadow: none !important; opacity: 1 !important;">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="datosInvitacion">
+                    <div class="info-adicional-invitado">
+                        <ul id="invitadosInfoAd" class="list-unstyled font-conf"></ul>
+                    </div>
+                    <div id="invitacionInfoAd">
+                        <li class="child pase-txt font-weight-bold">Sarai Flores - Asistirá</li>
+                        <li class="child pase-txt font-weight-bold">Mauricio Garcia - Asistirá</li>
+                        <li class="child pase-txt font-weight-bold">Carlos - Asistirá</li>
+                    </div>
+                    <div class="no-confirmados">
+                        <ul id="invitadosInfoAdNo" class="list-unstyled pase-txt font-conf font-weight-bold"></ul>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-close btnCerrarInfoAd" data-dismiss="modal">Cerrar</button>
+                <!-- Responder invitación -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="submit-info centrar">
+                            <button class="btn btn-lg btn-confirmar" style="border-radius: 8px;" id="enviar_eventos">Confirmar respuesta</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalPaseEntrada" tabindex="-1" aria-labelledby="modalPaseEntradaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content bg-1-img">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body" id="pase">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="text-center ">Boda <br> María Fernanda & Abram </h1>
+                            <h5 class="text-center ">Su asistencia ha sido confirmada para este evento con la siguiente información:</h5>
+                            <hr>
+                            <p class="text-center m-0">Familia/Invitado</p>
+                            <p class="text-center"><span class="c-0"></span></p>
+                            <br>
+                            <p class="text-center">Invitados</p>
+                            <ul id="listaInivtados" class="text-center list-unstyled font-weight-bold"></ul>
+                            <hr>
+                            <div id="mesa" style="display: none;">
+                                <p class="text-center m-0">Mesa</p>
+                                <p class="text-center"><b><span id="numMesa"></span></b></p>
+                            </div>
+                            <hr>
+                            <!--<p class="text-center">Presenta este código QR en la recepción del evento</p>-->
+                        </div>
+                        <!--<div class="col-md-12 centrar">
+                            <img src="" id="qrPase" alt="QR Pase">
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn bg-btn-color" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div> 

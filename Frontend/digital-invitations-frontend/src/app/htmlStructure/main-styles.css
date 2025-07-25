@@ -1,0 +1,14 @@
+/* Importar los estilos de cada sección */
+@import url('welcome-screen.css');
+@import url('music-player.css');
+@import url('story.css');
+@import url('countdown.css');
+@import url('godparents.css');
+@import url('event-details.css');
+@import url('photo-gallery.css');
+@import url('gift-registry.css');
+@import url('itinerary.css');
+@import url('rsvp-form.css');
+@import url('footer.css');
+
+/* Estilos globales o de maquetación general */ 
