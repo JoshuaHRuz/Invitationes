@@ -1,1 +1,137 @@
-/* Styles for story component */ 
+.story-section {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.section-title, .couple-name {
+  font-family: 'Playfair Display', serif;
+  color: var(--invitation-text-color, #000000);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.main-image {
+  max-width: 500px;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+}
+
+.couple-name {
+  font-size: 2rem;
+  color: var(--invitation-primary-color, #F9C4CC);
+}
+
+.wedding-date {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--invitation-secondary-color, #7DB266);
+  margin-top: 0.5rem;
+  letter-spacing: 2px;
+}
+
+.divider {
+  width: 80px;
+  height: 2px;
+  background-color: var(--invitation-primary-color, #F9C4CC);
+  margin: 1.5rem auto;
+}
+
+.vows-section {
+  display: flex; /* Asegura que los hijos se pongan en fila */
+  flex-wrap: wrap; /* Permite que se ajusten si no hay espacio */
+  justify-content: center; /* Centra los elementos */
+  gap: 2rem; /* Espacio entre los votos */
+  margin-top: 3rem;
+  
+  .col-md-6 {
+      flex: 1; /* Permite que crezcan y ocupen el espacio */
+      min-width: 300px; /* Ancho mínimo para cada voto */
+  }
+
+  h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--invitation-text-color, #000000);
+  }
+  p {
+    font-style: italic;
+    color: #555;
+  }
+}
+
+.children-section {
+  margin-top: 4rem;
+}
+
+.flower-divider {
+  max-width: 300px; /* Duplicando el tamaño */
+  margin-bottom: 2rem;
+}
+
+.children-list {
+  margin-top: 2rem;
+}
+
+.child-item {
+  flex: 0 0 100%; /* Cada item ocupa el 100% del contenedor */
+  box-sizing: border-box;
+  padding: 0 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.child-photo {
+  width: 300px; /* Doble de tamaño */
+  height: 300px; /* Doble de tamaño */
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 4px solid var(--invitation-primary-color, #F9C4CC);
+} 
+
+.children-carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px; /* Doble de tamaño */
+  margin: 2rem auto;
+  overflow: hidden;
+}
+
+.children-carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--invitation-primary-color, #F9C4CC); /* Color rosa */
+  color: var(--invitation-text-color, #000000); /* Color de texto negro */
+  border: none;
+  font-size: 2rem; /* Flecha más grande */
+  cursor: pointer;
+  border-radius: 50%;
+  width: 50px; /* Botón más grande */
+  height: 50px; /* Botón más grande */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var(--invitation-secondary-color, #7DB266); /* Verde en hover */
+  }
+}
+
+.carousel-control.prev {
+  left: 10px; /* Posición dentro del contenedor */
+}
+
+.carousel-control.next {
+  right: 10px; /* Posición dentro del contenedor */
+} 
