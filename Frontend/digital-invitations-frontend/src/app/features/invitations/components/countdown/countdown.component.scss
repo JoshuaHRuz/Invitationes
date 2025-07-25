@@ -1,1 +1,68 @@
-/* Styles for countdown component */ 
+.countdown-section {
+  position: relative;
+  padding: 5rem 0;
+  background-image: url('/assets/images/background/background-2.png'); /* Ruta absoluta desde la raíz */
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7); /* Superposición blanca semi-transparente */
+}
+
+.countdown-content {
+  position: relative;
+  z-index: 2;
+}
+
+.countdown-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--invitation-text-color, #000000); /* Usamos el color de texto del tema */
+}
+
+.divider {
+  width: 80px;
+  height: 2px;
+  background-color: var(--invitation-primary-color, #F9C4CC);
+  margin: 1.5rem auto;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  color: var(--invitation-text-color, #000000); /* Aseguramos que el texto del timer sea negro */
+}
+
+.time-box {
+  background-color: transparent; /* Sin fondo de color */
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--invitation-primary-color, #F9C4CC);
+  min-width: 120px;
+}
+
+.time-value {
+  display: block;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.time-label {
+  display: block;
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+  color: var(--invitation-text-color, #000000); /* Aseguramos que la etiqueta sea negra */
+} 
