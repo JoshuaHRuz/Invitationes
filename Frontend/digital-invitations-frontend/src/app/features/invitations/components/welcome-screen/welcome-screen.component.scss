@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #f7f3f0;
+  background-color: var(--invitation-background-color, #ffffff); /* Fallback por si la variable no está disponible */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,9 +13,9 @@
 }
 
 .welcome-title {
-  font-family: 'Playfair Display', serif; /* Una fuente elegante para el título */
+  font-family: 'Playfair Display', serif;
   font-size: 4rem;
-  color: var(--primary-dark-color);
+  color: var(--invitation-text-color, #000000); /* Usa el color de texto de la invitación */
   line-height: 1.2;
 }
 
@@ -65,20 +65,21 @@
 }
 
 .btn-invitacion {
-  font-size: 1.5rem; /* Ajuste de tamaño */
+  font-size: 1.5rem;
   padding: 12px 35px;
   border-radius: 50px;
-  background-color: var(--primary-color);
-  color: white;
+  background-color: var(--invitation-primary-color, #F9C4CC); /* Usa el color primario de la invitación */
+  color: var(--invitation-text-color, #000000); /* Usa el color de texto de la invitación */
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 2px;
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--invitation-primary-color, #F9C4CC);
   transition: all 0.3s ease;
   cursor: pointer;
 
   &:hover {
-    background-color: var(--primary-dark-color);
+    background-color: var(--invitation-secondary-color, #7DB266); /* Usa el color secundario para el hover */
+    border-color: var(--invitation-secondary-color, #7DB266);
     transform: scale(1.05);
   }
 }

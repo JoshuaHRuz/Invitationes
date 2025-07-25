@@ -1,1 +1,26 @@
-/* Styles for music-player component */ 
+.music-player-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--invitation-primary-color, #F9C4CC);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1001; /* Asegurar que esté por encima de la máscara de bienvenida */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: var(--invitation-secondary-color, #7DB266);
+  }
+}
+
+.music-player-container i {
+  color: var(--invitation-text-color, #000000);
+  font-size: 24px;
+} 

@@ -1,1 +1,4 @@
-<p>music-player works!</p> 
+<div class="music-player-container" (click)="togglePlay()">
+  <i class="fas" [ngClass]="isPlaying ? 'fa-pause' : 'fa-play'"></i>
+</div>
+<audio #audioPlayer src="assets/music/cancion-boda.mp3" loop></audio> 

@@ -1,5 +1,14 @@
 .template-container {
-  padding-top: 80px; /* Add padding to avoid content being hidden by the fixed navbar */
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 0rem;
+
+  /* Colores específicos para la invitación */
+  --invitation-primary-color: #F9C4CC; /* Rosa */
+  --invitation-secondary-color: #7DB266; /* Verde */
+  --invitation-text-color: #000000; /* Negro */
+  --invitation-background-color: #ffffff; /* Fondo blanco para las secciones */
+
+  /* Sobreescribir variables globales si es necesario para los hijos */
+  background-color: var(--invitation-background-color);
+  color: var(--invitation-text-color);
+
 } 

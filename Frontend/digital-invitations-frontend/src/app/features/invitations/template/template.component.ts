@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from '../../../shared/components/navbar/navbar.component';
 import { WelcomeScreenComponent } from '../components/welcome-screen/welcome-screen.component';
 import { MusicPlayerComponent } from '../components/music-player/music-player.component';
 import { StoryComponent } from '../components/story/story.component';
@@ -18,7 +17,6 @@ import { FooterComponent } from '../components/footer/footer.component';
   standalone: true,
   imports: [
     CommonModule,
-    NavbarComponent,
     WelcomeScreenComponent,
     MusicPlayerComponent,
     StoryComponent,
