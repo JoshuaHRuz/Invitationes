@@ -1,1 +1,18 @@
-<p>godparents works!</p> 
+<section class="godparents-section">
+  <div class="container">
+    <h2 class="section-title">Nuestros Padrinos</h2>
+    <div class="divider"></div>
+    <div class="row godparents-list">
+      <div class="col-md-4 godparent-item" *ngFor="let godparent of godparents">
+        <img [src]="godparent.icon" [alt]="godparent.type" class="godparent-icon">
+        <h3 class="godparent-type">{{ godparent.type }}</h3>
+        <div class="godparent-names">
+          <p *ngFor="let name of godparent.names; let isLast = last">
+            {{ name }}<span *ngIf="!isLast && godparent.names.length > 1"> &</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <img src="assets/images/elements/flower-divider.png" class="flower-divider" alt="Adorno floral">
+  </div>
+</section> 

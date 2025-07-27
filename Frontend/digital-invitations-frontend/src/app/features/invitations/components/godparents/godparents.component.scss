@@ -1,1 +1,71 @@
-/* Styles for godparents component */ 
+.godparents-section {
+  padding: 4rem 0;
+  text-align: center;
+  background-image: url('/assets/images/background/background-2.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.godparents-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.85); /* Aumentamos la opacidad para más legibilidad */
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--invitation-text-color, #000000);
+  margin-bottom: 1rem;
+}
+
+.divider {
+  width: 80px;
+  height: 2px;
+  background-color: var(--invitation-primary-color, #F9C4CC);
+  margin: 0 auto 3rem auto;
+}
+
+.godparents-list {
+  justify-content: center;
+}
+
+.godparent-item {
+  margin-bottom: 2.5rem;
+}
+
+.godparent-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.godparent-type {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: var(--invitation-primary-color, #F9C4CC);
+  margin-bottom: 0.5rem;
+}
+
+.godparent-names p {
+  font-size: 1.1rem;
+  margin: 0;
+  line-height: 1.4;
+  color: var(--invitation-text-color, #000000);
+}
+
+.flower-divider {
+  max-width: 300px;
+  margin-top: 3rem;
+} 

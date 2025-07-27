@@ -1,1 +1,92 @@
-/* Styles for event-details component */ 
+.event-details-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-row {
+  display: flex;
+  flex-wrap: wrap; /* Para que se ajuste en móviles */
+  min-height: 400px;
+}
+
+.event-image-col, .event-info-col {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .event-image-col, .event-info-col {
+    width: 50%;
+  }
+}
+
+.event-image-col {
+  background-size: cover;
+  background-position: center;
+  min-height: 300px;
+}
+
+.event-info-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0rem;
+  text-align: center;
+}
+
+.order-right {
+  order: 1; /* Mueve la imagen a la derecha en el orden flex */
+}
+
+.event-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--invitation-text-color, #000000);
+}
+
+.divider {
+  width: 80px;
+  height: 2px;
+  background-color: var(--invitation-primary-color, #F9C4CC);
+  margin: 1rem auto;
+}
+
+.event-location {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.event-address, .event-time {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 0.5rem 0;
+}
+
+.map-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 10px 30px;
+  background-color: var(--invitation-primary-color, #F9C4CC);
+  color: var(--invitation-text-color, #000000);
+  text-decoration: none;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var(--invitation-secondary-color, #7DB266);
+  }
+}
+
+.dress-code {
+  margin-top: 2rem;
+  
+  h4 {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+}
+
+.dress-code-icons img {
+  width: 35px;
+  margin: 0 0.5rem;
+} 

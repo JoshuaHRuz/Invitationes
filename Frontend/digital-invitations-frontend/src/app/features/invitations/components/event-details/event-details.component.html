@@ -1,1 +1,22 @@
-<p>event-details works!</p> 
+<section class="event-details-section">
+  <div class="event-row" *ngFor="let event of events">
+    <div class="event-image-col" [style.backgroundImage]="'url(' + event.imageUrl + ')'" [class.order-right]="event.imageOrder === 'right'"></div>
+    <div class="event-info-col">
+      <div class="event-info-content">
+        <h2 class="event-name">{{ event.name }}</h2>
+        <div class="divider"></div>
+        <h3 class="event-location">{{ event.location }}</h3>
+        <p class="event-address">{{ event.address }}</p>
+        <p class="event-time">{{ event.time }}</p>
+        <a [href]="event.mapUrl" target="_blank" class="map-button">Ver Mapa</a>
+        <div *ngIf="event.dressCode" class="dress-code">
+          <div class="divider"></div>
+          <h4>{{ event.dressCode.title }}</h4>
+          <div class="dress-code-icons">
+            <img *ngFor="let icon of event.dressCode.icons" [src]="icon" alt="Dress code icon">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 
