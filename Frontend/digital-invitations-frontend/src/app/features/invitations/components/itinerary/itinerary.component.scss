@@ -1,1 +1,143 @@
 /* Styles for itinerary component */ 
+.itinerary-section {
+  padding: 4rem 0;
+  text-align: center;
+  background-color: #fff; /* Fondo blanco sólido */
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--invitation-text-color, #000000);
+  margin-bottom: 1rem;
+}
+
+.divider {
+  width: 80px;
+  height: 2px;
+  background-color: var(--invitation-primary-color, #F9C4CC);
+  margin: 0 auto 3rem auto;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.timeline {
+  list-style: none;
+  padding: 20px 0;
+  position: relative;
+}
+
+/* La línea vertical central */
+.timeline:before {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 2px;
+  background-color: #e9ecef; /* Un gris muy claro */
+  left: 50%;
+  margin-left: -1px;
+}
+
+/* Contenedor de cada evento, con clearfix */
+.timeline > li {
+  margin-bottom: 20px;
+  position: relative;
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+/* El pequeño círculo en la línea */
+.timeline-badge {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  margin-left: -8px;
+  background-color: var(--invitation-primary-color, #F9C4CC);
+  z-index: 100;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+/* El panel con la información */
+.timeline-panel {
+  width: 45%;
+  float: left;
+  border-radius: 8px;
+  padding: 20px;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+}
+
+.timeline-inverted .timeline-panel {
+  float: right;
+}
+
+/* Alineación del contenido del panel */
+.timeline-heading {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.timeline-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.timeline-text {
+  text-align: left;
+}
+
+.timeline-time {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--invitation-secondary-color, #7DB266);
+}
+
+.timeline-title {
+  margin-top: 2px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--invitation-text-color, #000000);
+}
+
+/* Eliminar las flechas viejas */
+.timeline-panel:before {
+    display: none;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  /* Ocultar la línea central */
+  .timeline:before {
+    display: none;
+  }
+
+  /* Ocultar los círculos */
+  .timeline-badge {
+    display: none;
+  }
+
+  /* Paneles a ancho completo y alineados a la izquierda */
+  .timeline-panel {
+    width: 100%;
+    float: none;
+    margin-bottom: 20px;
+  }
+
+  /* Asegurar que todos los paneles se comporten igual */
+  .timeline-inverted .timeline-panel {
+    float: none;
+  }
+} 

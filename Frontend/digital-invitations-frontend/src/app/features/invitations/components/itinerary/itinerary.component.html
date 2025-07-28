@@ -1,1 +1,22 @@
-<p>itinerary works!</p> 
+<section class="itinerary-section">
+  <div class="container">
+    <h2 class="section-title">Minuto a Minuto</h2>
+    <div class="divider"></div>
+    <div class="timeline-container">
+      <ul class="timeline">
+        <li *ngFor="let event of timeline; let i = index" [class.timeline-inverted]="i % 2 !== 0">
+          <div class="timeline-badge"></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <img [src]="event.icon" [alt]="event.title" class="timeline-icon">
+              <div class="timeline-text">
+                <h4 class="timeline-time">{{ event.time }}</h4>
+                <h3 class="timeline-title">{{ event.title }}</h3>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section> 
