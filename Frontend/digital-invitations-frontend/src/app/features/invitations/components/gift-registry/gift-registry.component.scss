@@ -1,1 +1,79 @@
-/* Styles for gift-registry component */ 
+.gift-registry-section {
+  padding: 4rem 0;
+  text-align: center;
+  background-image: url('/assets/images/background/background-2.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.gift-registry-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--invitation-text-color, #000000);
+  margin-bottom: 1rem;
+}
+
+.divider {
+  width: 80px;
+  height: 2px;
+  background-color: var(--invitation-primary-color, #F9C4CC);
+  margin: 0 auto 2rem auto;
+}
+
+.intro-message {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.stores-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.store-link img {
+  max-width: 200px;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.bank-info-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border: 1px solid var(--invitation-primary-color, #F9C4CC);
+  border-radius: 8px;
+}
+
+.bank-message {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.bank-details p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+} 

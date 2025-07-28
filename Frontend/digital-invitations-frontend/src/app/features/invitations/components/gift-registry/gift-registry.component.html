@@ -1,1 +1,22 @@
-<p>gift-registry works!</p> 
+<section class="gift-registry-section">
+  <div class="container">
+    <h2 class="section-title">Mesa de Regalos</h2>
+    <div class="divider"></div>
+    <p class="intro-message">{{ message }}</p>
+    
+    <div class="stores-container">
+      <a *ngFor="let store of stores" [href]="store.link" target="_blank" class="store-link">
+        <img [src]="store.logoUrl" [alt]="store.name">
+      </a>
+    </div>
+
+    <div class="bank-info-container">
+      <p class="bank-message">{{ bankAccount.message }}</p>
+      <div class="bank-details">
+        <p><strong>Banco:</strong> {{ bankAccount.bank }}</p>
+        <p><strong>A nombre de:</strong> {{ bankAccount.accountHolder }}</p>
+        <p><strong>CLABE:</strong> {{ bankAccount.clabe }}</p>
+      </div>
+    </div>
+  </div>
+</section> 
