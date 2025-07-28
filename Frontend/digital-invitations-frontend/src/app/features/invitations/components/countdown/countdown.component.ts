@@ -21,10 +21,9 @@ export class CountdownComponent implements OnInit, OnDestroy {
   constructor(private invitationDataService: InvitationDataService) {}
 
   ngOnInit() {
-    this.invitationDataService.getInvitationData().subscribe(data => {
-      this.targetDate = new Date(data.date);
-      this.startCountdown();
-    });
+    const data = this.invitationDataService.getInvitationData();
+    this.targetDate = new Date(data.date);
+    this.startCountdown();
   }
 
   ngOnDestroy() {
@@ -34,7 +33,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
   }
 
   startCountdown() {
-    this.updateTime(); // Llama una vez para evitar el retraso inicial
+    this.updateTime();
     this.intervalId = setInterval(() => {
       this.updateTime();
     }, 1000);

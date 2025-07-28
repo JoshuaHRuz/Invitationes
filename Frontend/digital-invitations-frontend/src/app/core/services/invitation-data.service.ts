@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { of, Observable } from 'rxjs';
 import { InvitationData } from '../models/invitation.model';
 
 @Injectable({
@@ -16,7 +15,7 @@ export class InvitationDataService {
     },
     eventTitle: 'Boda de Ana y Alberto',
     fullEventTitle: 'Boda de<br>Ana y Alberto',
-    date: '2026-02-04T12:00:00',
+    date: '2025-20-09T12:00:00',
     story: {
       mainImageUrl: 'assets/images/elements/main-image.png',
       children: [
@@ -44,16 +43,16 @@ export class InvitationDataService {
         mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.646451725729!2d-99.082305285732!3d19.210638352720135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce0437dbf21e11%3A0xe76e6e2ab267a3f4!2sHacienda%20Santa%20Catarina!5e0!3m2!1ses-419!2smx!4v1632863818303!5m2!1ses-419!2smx',
         imageUrl: '/assets/images/photos/venue.png',
         imageOrder: 'left',
-        dressCode: {
-          title: 'Vestimenta Formal',
-          icons: ['/assets/icons/vestido.svg', '/assets/icons/traje.svg']
-        }
+        //dressCode: {
+        //  title: 'Vestimenta Formal',
+        //  icons: ['/assets/icons/vestido.svg', '/assets/icons/traje.svg']
+        //}
       }
     ],
     godparents: [
-      { type: 'Anillos', icon: 'assets/icons/rings.png', names: ['Ana María Marín Román'] },
-      { type: 'Fotografía', icon: 'assets/icons/camera.png', names: ['Joshua Michael Pasten Juárez'] },
-      { type: 'Pastel', icon: 'assets/icons/cake.png', names: ['María Antonieta Pérez Hernández', 'Daniel Vega de la Rosa'] }
+      { type: '', icon: 'assets/icons/rings.png', names: ['Yolanda Guevara Silva', 'Fiwel Chávez Trejo Jijos', 'Jonathan Israel González', ' Joshua Israel González Ruiz'] },
+      //{ type: 'Fotografía', icon: 'assets/icons/camera.png', names: ['Joshua Michael Pasten Juárez'] },
+      //{ type: 'Pastel', icon: 'assets/icons/cake.png', names: ['María Antonieta Pérez Hernández', 'Daniel Vega de la Rosa'] }
     ],
     itinerary: [
       { time: '12:00', title: 'Ceremonia Religiosa', icon: '/assets/icons/church.png' },
@@ -67,12 +66,11 @@ export class InvitationDataService {
       { time: '21:20', title: '¡Disfruta la Fiesta!', icon: '/assets/icons/music-dance.png' }
     ],
     photoGallery: [
-      { src: '/assets/images/photos/couple-1.png', alt: 'Foto de galería 1' },
-      { src: '/assets/images/photos/couple-2.png', alt: 'Foto de galería 2' },
-      { src: '/assets/images/photos/couple-3.png', alt: 'Foto de galería 3' },
-      { src: '/assets/images/photos/couple-4.png', alt: 'Foto de galería 4' },
-      { src: '/assets/images/photos/couple-5.png', alt: 'Foto de galería 5' },
-      { src: '/assets/images/photos/couple-6.png', alt: 'Foto de galería 6' },
+      { src: '/assets/images/photos/couple-7.png', alt: 'Foto de galería 1' },
+      { src: '/assets/images/photos/couple-8.png', alt: 'Foto de galería 2' },
+      { src: '/assets/images/photos/couple-9.png', alt: 'Foto de galería 3' },
+      { src: '/assets/images/photos/couple-10.png', alt: 'Foto de galería 4' },
+
     ],
     giftRegistry: {
       message: "El mejor regalo es tu presencia, pero si deseas obsequiarnos algo más, puedes hacerlo de las siguientes maneras:",
@@ -86,10 +84,23 @@ export class InvitationDataService {
         accountHolder: "Ana Pérez Ramírez",
         clabe: "1234 5678 9012 345678"
       }
+    },
+    componentVisibility: {
+      welcomeScreen: 1,
+      musicPlayer: 1,
+      story: 1,
+      countdown: 1,
+      godparents: 1,
+      eventDetails: 1,
+      photoGallery: 1,
+      giftRegistry: 0,
+      itinerary: 1,
+      rsvpForm: 1,
+      footer: 1
     }
   };
 
-  getInvitationData(): Observable<InvitationData> {
-    return of(this.invitationData);
+  getInvitationData(): InvitationData {
+    return this.invitationData;
   }
 } 

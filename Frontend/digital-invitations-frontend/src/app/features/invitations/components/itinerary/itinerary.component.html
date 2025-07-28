@@ -4,7 +4,7 @@
     <div class="divider"></div>
     <div class="timeline-container">
       <ul class="timeline">
-        <li *ngFor="let event of (timeline$ | async); let i = index" [class.timeline-inverted]="i % 2 !== 0">
+        <li *ngFor="let event of timeline; let i = index" [class.timeline-inverted]="i % 2 !== 0">
           <div class="timeline-badge"></div>
           <div class="timeline-panel">
             <div class="timeline-heading">

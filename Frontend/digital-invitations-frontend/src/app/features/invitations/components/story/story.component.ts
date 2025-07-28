@@ -2,8 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InvitationDataService } from '../../../../core/services/invitation-data.service';
 import { InvitationData } from '../../../../core/models/invitation.model';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-story',
@@ -13,7 +11,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./story.component.scss']
 })
 export class StoryComponent implements OnInit, OnDestroy {
-  invitationData$!: Observable<InvitationData>;
+  invitationData!: InvitationData;
   children: InvitationData['story']['children'] = [];
 
   currentChildIndex = 0;
@@ -23,11 +21,9 @@ export class StoryComponent implements OnInit, OnDestroy {
   constructor(private invitationDataService: InvitationDataService) {}
 
   ngOnInit() {
-    this.invitationData$ = this.invitationDataService.getInvitationData();
-    this.invitationData$.subscribe(data => {
-      this.children = data.story.children;
-      this.startCarousel();
-    });
+    this.invitationData = this.invitationDataService.getInvitationData();
+    this.children = this.invitationData.story.children;
+    this.startCarousel();
   }
 
   ngOnDestroy() {

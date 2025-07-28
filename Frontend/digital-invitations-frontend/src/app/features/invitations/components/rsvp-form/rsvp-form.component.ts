@@ -27,9 +27,7 @@ export class RsvpFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.invitationDataService.getInvitationData().subscribe(data => {
-      this.invitationData = data;
-    });
+    this.invitationData = this.invitationDataService.getInvitationData();
 
     // Simulación de datos de invitados
     this.addGuest('Joshua Hernandez', true);

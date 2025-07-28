@@ -3,7 +3,7 @@
     <h2 class="section-title">Nuestros Momentos</h2>
     <div class="divider"></div>
     <div class="gallery-grid">
-      <div class="gallery-item" *ngFor="let photo of (photos$ | async)">
+      <div class="gallery-item" *ngFor="let photo of photos">
         <img [src]="photo.src" [alt]="photo.alt" class="img-fluid">
       </div>
     </div>

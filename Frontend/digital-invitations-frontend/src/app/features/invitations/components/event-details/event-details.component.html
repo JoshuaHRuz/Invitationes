@@ -1,5 +1,5 @@
 <section class="event-details-section">
-  <div class="event-row" *ngFor="let event of (events$ | async)"
+  <div class="event-row" *ngFor="let event of events"
        [ngClass]="{ 'reception-mobile-order': event.name === 'Recepción' }">
     <div class="event-image-col" [style.backgroundImage]="'url(' + event.imageUrl + ')'" [class.order-right]="event.imageOrder === 'right'"></div>
     <div class="event-info-col">

@@ -26,9 +26,7 @@ export class WelcomeScreenComponent implements OnInit {
   constructor(private invitationDataService: InvitationDataService) {}
 
   ngOnInit(): void {
-    this.invitationDataService.getInvitationData().subscribe(data => {
-      this.invitationData = data;
-    });
+    this.invitationData = this.invitationDataService.getInvitationData();
   }
 
   openInvitation(): void {

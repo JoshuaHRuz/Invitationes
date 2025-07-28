@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InvitationDataService } from '../../../../core/services/invitation-data.service';
 import { InvitationData } from '../../../../core/models/invitation.model';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-godparents',
@@ -13,13 +11,11 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./godparents.component.scss']
 })
 export class GodparentsComponent implements OnInit {
-  godparents$!: Observable<InvitationData['godparents']>;
+  godparents!: InvitationData['godparents'];
 
   constructor(private invitationDataService: InvitationDataService) {}
 
   ngOnInit(): void {
-    this.godparents$ = this.invitationDataService.getInvitationData().pipe(
-      map(data => data.godparents)
-    );
+    this.godparents = this.invitationDataService.getInvitationData().godparents;
   }
 } 

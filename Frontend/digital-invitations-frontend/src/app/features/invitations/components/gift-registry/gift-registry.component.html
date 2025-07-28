@@ -1,5 +1,5 @@
 <section class="gift-registry-section">
-  <div class="container" *ngIf="giftRegistry$ | async as giftRegistry">
+  <div class="container" *ngIf="giftRegistry">
     <h2 class="section-title">Mesa de Regalos</h2>
     <div class="divider"></div>
     <p class="intro-message">{{ giftRegistry.message }}</p>

@@ -3,7 +3,7 @@
     <h2 class="section-title">Nuestros Padrinos</h2>
     <div class="divider"></div>
     <div class="row godparents-list">
-      <div class="col-md-4 godparent-item" *ngFor="let godparent of (godparents$ | async)">
+      <div class="col-md-4 godparent-item" *ngFor="let godparent of godparents">
         <img [src]="godparent.icon" [alt]="godparent.type" class="godparent-icon">
         <h3 class="godparent-type">{{ godparent.type }}</h3>
         <div class="godparent-names">

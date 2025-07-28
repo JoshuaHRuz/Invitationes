@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { InvitationDataService } from '../../../core/services/invitation-data.service';
+import { ComponentVisibility } from '../../../core/models/invitation.model';
 import { CommonModule } from '@angular/common';
 import { WelcomeScreenComponent } from '../components/welcome-screen/welcome-screen.component';
 import { MusicPlayerComponent } from '../components/music-player/music-player.component';
@@ -32,6 +34,12 @@ import { FooterComponent } from '../components/footer/footer.component';
   templateUrl: './template.component.html',
   styleUrls: ['./template.component.scss']
 })
-export class TemplateComponent {
+export class TemplateComponent implements OnInit {
+  visibility?: ComponentVisibility;
 
+  constructor(private invitationDataService: InvitationDataService) {}
+
+  ngOnInit(): void {
+    this.visibility = this.invitationDataService.getInvitationData().componentVisibility;
+  }
 } 

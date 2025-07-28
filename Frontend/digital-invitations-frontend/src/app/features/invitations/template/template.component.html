@@ -1,13 +1,13 @@
-<div class="template-container">
-  <app-welcome-screen></app-welcome-screen>
-  <app-music-player></app-music-player>
-  <app-story></app-story>
-  <app-countdown></app-countdown>
-  <app-godparents></app-godparents>
-  <app-event-details></app-event-details>
-  <app-photo-gallery></app-photo-gallery>
-  <app-gift-registry></app-gift-registry>
-  <app-itinerary></app-itinerary>
-  <app-rsvp-form></app-rsvp-form>
-  <app-footer></app-footer>
+<div class="template-container" *ngIf="visibility">
+  <app-welcome-screen *ngIf="visibility.welcomeScreen"></app-welcome-screen>
+  <app-music-player *ngIf="visibility.musicPlayer"></app-music-player>
+  <app-story *ngIf="visibility.story"></app-story>
+  <app-countdown *ngIf="visibility.countdown"></app-countdown>
+  <app-godparents *ngIf="visibility.godparents"></app-godparents>
+  <app-event-details *ngIf="visibility.eventDetails"></app-event-details>
+  <app-photo-gallery *ngIf="visibility.photoGallery"></app-photo-gallery>
+  <app-gift-registry *ngIf="visibility.giftRegistry"></app-gift-registry>
+  <app-itinerary *ngIf="visibility.itinerary"></app-itinerary>
+  <app-rsvp-form *ngIf="visibility.rsvpForm"></app-rsvp-form>
+  <app-footer *ngIf="visibility.footer"></app-footer>
 </div> 

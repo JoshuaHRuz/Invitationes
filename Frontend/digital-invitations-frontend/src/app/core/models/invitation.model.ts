@@ -1,3 +1,17 @@
+export interface ComponentVisibility {
+  welcomeScreen: 0 | 1;
+  musicPlayer: 0 | 1;
+  story: 0 | 1;
+  countdown: 0 | 1;
+  godparents: 0 | 1;
+  eventDetails: 0 | 1;
+  photoGallery: 0 | 1;
+  giftRegistry: 0 | 1;
+  itinerary: 0 | 1;
+  rsvpForm: 0 | 1;
+  footer: 0 | 1;
+}
+
 export interface InvitationData {
   couple: {
     name1: string;
@@ -53,4 +67,5 @@ export interface InvitationData {
       clabe: string;
     };
   };
+  componentVisibility: ComponentVisibility;
 } 

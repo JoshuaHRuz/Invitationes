@@ -1,25 +1,25 @@
 <section class="story-section">
-    <div class="container" *ngIf="invitationData$ | async as data">
+    <div class="container" *ngIf="invitationData">
         <div class="header-story text-center">
             <h2 class="section-title">Nuestra Historia</h2>
-            <img [src]="data.story.mainImageUrl" class="main-image img-fluid" alt="{{ data.couple.name1 }} y {{ data.couple.name2 }}">
+            <img [src]="invitationData.story.mainImageUrl" class="main-image img-fluid" alt="{{ invitationData.couple.name1 }} y {{ invitationData.couple.name2 }}">
         </div>
         <div class="couple-names text-center">
-            <h3 class="couple-name">{{ data.couple.name1 }} & {{ data.couple.name2 }}</h3>
+            <h3 class="couple-name">{{ invitationData.couple.name1 }} & {{ invitationData.couple.name2 }}</h3>
             <span class="wedding-date">04 | FEBRERO | 2026</span>
             <div class="divider"></div>
         </div>
         <div class="row vows-section">
             <div class="col-md-6 text-center">
-                <h4>{{ data.couple.name1 }}</h4>
-                <p [innerHTML]="data.couple.vow1"></p>
+                <h4>{{ invitationData.couple.name1 }}</h4>
+                <p [innerHTML]="invitationData.couple.vow1"></p>
             </div>
             <div class="col-md-6 text-center">
-                <h4>{{ data.couple.name2 }}</h4>
-                <p [innerHTML]="data.couple.vow2"></p>
+                <h4>{{ invitationData.couple.name2 }}</h4>
+                <p [innerHTML]="invitationData.couple.vow2"></p>
             </div>
         </div>
-        <div class="children-section text-center">
+        <div *ngIf="children && children.length > 0" class="children-section text-center">
             <img src="assets/images/elements/flower-divider.png" class="flower-divider" alt="Adorno floral">
             <h2 class="section-title">Nuestros Hijos</h2>
             <div class="divider"></div>
