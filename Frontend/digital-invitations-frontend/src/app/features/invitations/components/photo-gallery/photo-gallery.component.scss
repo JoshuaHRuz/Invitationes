@@ -1,1 +1,63 @@
-/* Styles for photo-gallery component */ 
+.photo-gallery-section {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--invitation-text-color, #000000);
+  margin-bottom: 1rem;
+}
+
+.divider {
+  width: 80px;
+  height: 2px;
+  background-color: var(--invitation-primary-color, #F9C4CC);
+  margin: 0 auto 3rem auto;
+}
+
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3.5rem; /* Espacio uniforme entre imágenes */
+  justify-content: center;
+}
+
+.gallery-item {
+  flex: 1 1 45%; /* Permite que crezca, pero la base es ~45% para 2 por fila */
+  max-width: 45%; /* Máximo para asegurar 2 columnas */
+  
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px; /* Esquinas más redondeadas */
+    border: 3px solid var(--invitation-primary-color, #F9C4CC);
+    padding: 5px;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .gallery-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 576px) {
+  .gallery-grid {
+    column-count: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-item {
+    flex: 1 1 100%; /* Una sola columna en pantallas más pequeñas */
+    max-width: 100%;
+  }
+}
+
+.flower-divider {
+  max-width: 300px;
+  margin-top: 3rem;
+} 

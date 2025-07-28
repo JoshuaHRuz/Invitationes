@@ -1,1 +1,12 @@
-<p>photo-gallery works!</p> 
+<section class="photo-gallery-section">
+  <div class="container">
+    <h2 class="section-title">Nuestros Momentos</h2>
+    <div class="divider"></div>
+    <div class="gallery-grid">
+      <div class="gallery-item" *ngFor="let photo of photos">
+        <img [src]="photo.src" [alt]="photo.alt" class="img-fluid">
+      </div>
+    </div>
+    <img src="/assets/images/elements/flower-divider.png" class="flower-divider" alt="Adorno floral">
+  </div>
+</section> 
