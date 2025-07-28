@@ -1,5 +1,7 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MusicService } from '../../../../core/services/music.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-music-player',
@@ -8,23 +10,43 @@ import { CommonModule } from '@angular/common';
   templateUrl: './music-player.component.html',
   styleUrls: ['./music-player.component.scss']
 })
-export class MusicPlayerComponent implements AfterViewInit {
+export class MusicPlayerComponent implements OnInit, OnDestroy {
   @ViewChild('audioPlayer') audioPlayerRef!: ElementRef<HTMLAudioElement>;
   
   isPlaying: boolean = false;
+  private playSubscription!: Subscription;
 
-  ngAfterViewInit() {
-    // Para algunos navegadores, la reproducción automática solo se permite después de la interacción del usuario.
-    // Podríamos intentar reproducir aquí si las políticas del navegador lo permiten.
+  constructor(private musicService: MusicService) {}
+
+  ngOnInit() {
+    this.playSubscription = this.musicService.playMusic$.subscribe(() => {
+      this.playAudio();
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.playSubscription) {
+      this.playSubscription.unsubscribe();
+    }
   }
 
   togglePlay(): void {
-    const audioPlayer = this.audioPlayerRef.nativeElement;
     if (this.isPlaying) {
-      audioPlayer.pause();
+      this.pauseAudio();
     } else {
-      audioPlayer.play();
+      this.playAudio();
     }
-    this.isPlaying = !this.isPlaying;
+  }
+
+  private playAudio() {
+    const audioPlayer = this.audioPlayerRef.nativeElement;
+    audioPlayer.play();
+    this.isPlaying = true;
+  }
+
+  private pauseAudio() {
+    const audioPlayer = this.audioPlayerRef.nativeElement;
+    audioPlayer.pause();
+    this.isPlaying = false;
   }
 } 

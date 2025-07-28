@@ -15,32 +15,31 @@ export class InvitationDataService {
     },
     eventTitle: 'Boda de Ana y Alberto',
     fullEventTitle: 'Boda de<br>Ana y Alberto',
-    date: '2025-20-09T12:00:00',
+    date: '2025-09-20T12:00:00',
     story: {
-      mainImageUrl: 'assets/images/elements/main-image.png',
+      mainImageUrl: 'assets/images/photos/main-image.jpeg',
       children: [
-        { name: 'Luis Manuel Hernández', photo: 'assets/images/photos/son-1.png' },
-        { name: 'Paola Horta Rojas', photo: 'assets/images/photos/son-2.png' },
-        { name: 'José Alberto Vallejo Aguilar', photo: 'assets/images/photos/son-3.png' }
+        { name: 'Luis Manuel Hernández', photo: 'assets/images/photos/son-4.jpg' },
+        { name: 'Paola Horta Rojas', photo: 'assets/images/photos/son-5.jpg' },
       ]
     },
     events: [
       {
         name: 'Ceremonia',
-        location: 'Parroquia del Señor del Calvario',
-        address: '15 de Septiembre 45, Culhuacan, Iztapalapa, 09800 Ciudad de México, CDMX',
-        time: '12:00 PM',
-        mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1882.3486820365415!2d-99.1094656844021!3d19.338934328771078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce01fde9e70707%3A0x1dd1d4dbef37e36d!2sParroquia%20del%20Se%C3%B1or%20del%20Calvario!5e0!3m2!1ses-419!2smx!4v1632863411797!5m2!1ses-419!2smx',
+        location: 'Templo Cristo de la Montaña',
+        address: 'Xocoyotzin 209, zona dos extendida, Azteca, 76085 Santiago de Querétaro, Qro.',
+        time: '12:45 PM',
+        mapUrl: 'https://g.co/kgs/wTHKAFo',
         imageUrl: '/assets/images/photos/church.png',
         imageOrder: 'right',
         dressCode: null
       },
       {
-        name: 'Recepción',
-        location: 'Hacienda Santa Catarina',
-        address: 'Carr a San Bartolomé Xicomulco 579, Santa Cecilia Tepetlapa, Xochimilco, 16880 Ciudad de México, CDMX',
-        time: '3:30 PM - 1:00 AM',
-        mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.646451725729!2d-99.082305285732!3d19.210638352720135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce0437dbf21e11%3A0xe76e6e2ab267a3f4!2sHacienda%20Santa%20Catarina!5e0!3m2!1ses-419!2smx!4v1632863818303!5m2!1ses-419!2smx',
+        name: 'Hospedaje cercano',
+        location: 'Campestre Italiana',
+        address: 'Villas del Cimatario 76087 Santiago de Querétaro, Qro.',
+        time: '',
+        mapUrl: 'https://maps.app.goo.gl/Ld9r8odu7PJa6gsT7',
         imageUrl: '/assets/images/photos/venue.png',
         imageOrder: 'left',
         //dressCode: {
@@ -66,10 +65,10 @@ export class InvitationDataService {
       { time: '21:20', title: '¡Disfruta la Fiesta!', icon: '/assets/icons/music-dance.png' }
     ],
     photoGallery: [
-      { src: '/assets/images/photos/couple-7.png', alt: 'Foto de galería 1' },
-      { src: '/assets/images/photos/couple-8.png', alt: 'Foto de galería 2' },
-      { src: '/assets/images/photos/couple-9.png', alt: 'Foto de galería 3' },
-      { src: '/assets/images/photos/couple-10.png', alt: 'Foto de galería 4' },
+      { src: '/assets/images/photos/couple-7.jpg', alt: 'Foto de galería 1' },
+      { src: '/assets/images/photos/couple-8.jpg', alt: 'Foto de galería 2' },
+      { src: '/assets/images/photos/couple-9.jpg', alt: 'Foto de galería 3' },
+      { src: '/assets/images/photos/couple-10.jpg', alt: 'Foto de galería 4' },
 
     ],
     giftRegistry: {

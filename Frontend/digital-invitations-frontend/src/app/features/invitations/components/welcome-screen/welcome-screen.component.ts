@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { InvitationDataService } from '../../../../core/services/invitation-data.service';
 import { InvitationData } from '../../../../core/models/invitation.model';
+import { MusicService } from '../../../../core/services/music.service';
 
 @Component({
   selector: 'app-welcome-screen',
@@ -23,7 +24,10 @@ export class WelcomeScreenComponent implements OnInit {
   isWelcomeScreenVisible = true;
   invitationData?: InvitationData;
 
-  constructor(private invitationDataService: InvitationDataService) {}
+  constructor(
+    private invitationDataService: InvitationDataService,
+    private musicService: MusicService
+  ) {}
 
   ngOnInit(): void {
     this.invitationData = this.invitationDataService.getInvitationData();
@@ -32,5 +36,6 @@ export class WelcomeScreenComponent implements OnInit {
   openInvitation(): void {
     this.isWelcomeScreenVisible = false;
     this.opened.emit();
+    this.musicService.triggerPlayMusic();
   }
 } 
