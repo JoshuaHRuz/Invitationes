@@ -1,21 +1,22 @@
 <section class="gift-registry-section">
-  <div class="container">
+  <div class="container" *ngIf="giftRegistry$ | async as giftRegistry">
     <h2 class="section-title">Mesa de Regalos</h2>
     <div class="divider"></div>
-    <p class="intro-message">{{ message }}</p>
-    
+    <p class="intro-message">{{ giftRegistry.message }}</p>
+
     <div class="stores-container">
-      <a *ngFor="let store of stores" [href]="store.link" target="_blank" class="store-link">
-        <img [src]="store.logoUrl" [alt]="store.name">
+      <a *ngFor="let store of giftRegistry.stores" [href]="store.link" target="_blank" class="store-link">
+        <img [src]="store.logoUrl" [alt]="store.name" class="store-logo">
       </a>
     </div>
 
-    <div class="bank-info-container">
-      <p class="bank-message">{{ bankAccount.message }}</p>
+    <div class="bank-transfer-container">
+      <div class="divider"></div>
+      <p>{{ giftRegistry.bankAccount.message }}</p>
       <div class="bank-details">
-        <p><strong>Banco:</strong> {{ bankAccount.bank }}</p>
-        <p><strong>A nombre de:</strong> {{ bankAccount.accountHolder }}</p>
-        <p><strong>CLABE:</strong> {{ bankAccount.clabe }}</p>
+        <p><strong>Banco:</strong> {{ giftRegistry.bankAccount.bank }}</p>
+        <p><strong>A nombre de:</strong> {{ giftRegistry.bankAccount.accountHolder }}</p>
+        <p><strong>CLABE:</strong> {{ giftRegistry.bankAccount.clabe }}</p>
       </div>
     </div>
   </div>

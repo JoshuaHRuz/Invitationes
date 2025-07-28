@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { InvitationDataService } from '../../../../core/services/invitation-data.service';
+import { InvitationData } from '../../../../core/models/invitation.model';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-gift-registry',
@@ -8,26 +12,14 @@ import { CommonModule } from '@angular/common';
   templateUrl: './gift-registry.component.html',
   styleUrls: ['./gift-registry.component.scss']
 })
-export class GiftRegistryComponent {
-  message = "El mejor regalo es tu presencia, pero si deseas obsequiarnos algo más, puedes hacerlo de las siguientes maneras:";
+export class GiftRegistryComponent implements OnInit {
+  giftRegistry$!: Observable<InvitationData['giftRegistry']>;
 
-  stores = [
-    {
-      name: 'Liverpool',
-      logoUrl: '/assets/images/logos/liverpool.png',
-      link: '#' // Reemplazar con el enlace real
-    },
-    {
-      name: 'Amazon',
-      logoUrl: '/assets/images/logos/amazon.png',
-      link: '#' // Reemplazar con el enlace real
-    }
-  ];
+  constructor(private invitationDataService: InvitationDataService) {}
 
-  bankAccount = {
-    message: "O si prefieres, puedes apoyarnos con un regalo en efectivo:",
-    bank: "BBVA",
-    accountHolder: "Ana Pérez Ramírez",
-    clabe: "1234 5678 9012 345678"
-  };
+  ngOnInit(): void {
+    this.giftRegistry$ = this.invitationDataService.getInvitationData().pipe(
+      map(data => data.giftRegistry)
+    );
+  }
 } 

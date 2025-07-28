@@ -1,49 +1,36 @@
 <section class="story-section">
-    <div class="container">
+    <div class="container" *ngIf="invitationData$ | async as data">
         <div class="header-story text-center">
             <h2 class="section-title">Nuestra Historia</h2>
-            <img src="assets/images/elements/main-image.png" class="main-image img-fluid" alt="Ana y Alberto">
+            <img [src]="data.story.mainImageUrl" class="main-image img-fluid" alt="{{ data.couple.name1 }} y {{ data.couple.name2 }}">
         </div>
         <div class="couple-names text-center">
-            <h3 class="couple-name">Ana Pérez & Alberto Aguilar</h3>
+            <h3 class="couple-name">{{ data.couple.name1 }} & {{ data.couple.name2 }}</h3>
             <span class="wedding-date">04 | FEBRERO | 2026</span>
             <div class="divider"></div>
         </div>
         <div class="row vows-section">
             <div class="col-md-6 text-center">
-                <h4>Ana Pérez Ramírez</h4>
-                <p>"Coincidir entre tanta gente no debió ser casualidad, sino destino."</p>
+                <h4>{{ data.couple.name1 }}</h4>
+                <p [innerHTML]="data.couple.vow1"></p>
             </div>
             <div class="col-md-6 text-center">
-                <h4>Alberto Aguilar Jiménez</h4>
-                <p>"Mis temores se marchan cada vez que me abrazas y me aseguras que todo irá bien."</p>
+                <h4>{{ data.couple.name2 }}</h4>
+                <p [innerHTML]="data.couple.vow2"></p>
             </div>
         </div>
         <div class="children-section text-center">
-            <img src="assets/images/elements/flower-divider-1.png" class="flower-divider" alt="Adorno floral">
+            <img src="assets/images/elements/flower-divider.png" class="flower-divider" alt="Adorno floral">
             <h2 class="section-title">Nuestros Hijos</h2>
             <div class="divider"></div>
             <div class="children-carousel-container">
                 <button class="carousel-control prev" (click)="prevChild()">&#10094;</button>
                 <div class="children-carousel-track" [style.transform]="'translateX(' + currentChildTransform + '%)'">
-                    <!-- Reemplazar con las fotos correctas -->
-                    <div class="child-item">
+                    <div class="child-item" *ngFor="let child of children">
                         <div class="child-photo">
-                            <img src="assets/images/photos/son-1.png" alt="Hijo 1">
+                            <img [src]="child.photo" [alt]="child.name">
                         </div>
-                        <p>Luis Manuel Hernández</p>
-                    </div>
-                    <div class="child-item">
-                        <div class="child-photo">
-                            <img src="assets/images/photos/son-2.png" alt="Hija 1">
-                        </div>
-                        <p>Paola Horta Rojas</p>
-                    </div>
-                    <div class="child-item">
-                        <div class="child-photo">
-                            <img src="assets/images/photos/son-3.png" alt="Hijo 2">
-                        </div>
-                        <p>José Alberto Vallejo Aguilar</p>
+                        <p>{{ child.name }}</p>
                     </div>
                 </div>
                 <button class="carousel-control next" (click)="nextChild()">&#10095;</button>

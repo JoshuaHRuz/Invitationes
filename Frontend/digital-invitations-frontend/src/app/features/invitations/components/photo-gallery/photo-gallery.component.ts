@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { InvitationDataService } from '../../../../core/services/invitation-data.service';
+import { InvitationData } from '../../../../core/models/invitation.model';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-photo-gallery',
@@ -8,13 +12,14 @@ import { CommonModule } from '@angular/common';
   templateUrl: './photo-gallery.component.html',
   styleUrls: ['./photo-gallery.component.scss']
 })
-export class PhotoGalleryComponent {
-  photos = [
-    { src: '/assets/images/photos/couple-1.png', alt: 'Foto de galería 1' },
-    { src: '/assets/images/photos/couple-2.png', alt: 'Foto de galería 2' },
-    { src: '/assets/images/photos/couple-3.png', alt: 'Foto de galería 3' },
-    { src: '/assets/images/photos/couple-4.png', alt: 'Foto de galería 4' },
-    { src: '/assets/images/photos/couple-5.png', alt: 'Foto de galería 5' },
-    { src: '/assets/images/photos/couple-6.png', alt: 'Foto de galería 6' },
-  ];
+export class PhotoGalleryComponent implements OnInit {
+  photos$!: Observable<InvitationData['photoGallery']>;
+
+  constructor(private invitationDataService: InvitationDataService) {}
+
+  ngOnInit(): void {
+    this.photos$ = this.invitationDataService.getInvitationData().pipe(
+      map(data => data.photoGallery)
+    );
+  }
 } 

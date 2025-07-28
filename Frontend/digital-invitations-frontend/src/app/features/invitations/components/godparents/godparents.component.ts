@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { InvitationDataService } from '../../../../core/services/invitation-data.service';
+import { InvitationData } from '../../../../core/models/invitation.model';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-godparents',
@@ -8,22 +12,14 @@ import { CommonModule } from '@angular/common';
   templateUrl: './godparents.component.html',
   styleUrls: ['./godparents.component.scss']
 })
-export class GodparentsComponent {
-  godparents = [
-    {
-      type: 'Anillos',
-      icon: 'assets/icons/anillos.svg',
-      names: ['Ana María Marín Román']
-    },
-    {
-      type: 'Fotografía',
-      icon: 'assets/icons/camara.svg',
-      names: ['Joshua Michael Pasten Juárez']
-    },
-    {
-      type: 'Pastel',
-      icon: 'assets/icons/pastel.svg',
-      names: ['María Antonieta Pérez Hernández', 'Daniel Vega de la Rosa']
-    }
-  ];
+export class GodparentsComponent implements OnInit {
+  godparents$!: Observable<InvitationData['godparents']>;
+
+  constructor(private invitationDataService: InvitationDataService) {}
+
+  ngOnInit(): void {
+    this.godparents$ = this.invitationDataService.getInvitationData().pipe(
+      map(data => data.godparents)
+    );
+  }
 } 

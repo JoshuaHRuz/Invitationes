@@ -47,8 +47,8 @@
   color: theme.$invitation-text-color;
 
   @media (max-width: 480px) {
-    gap: 0.5rem; /* Reducir aún más el espacio */
-    padding: 0 0.5rem;
+    gap: 0.3rem; /* Reducir aún más el espacio */
+    padding: 0 0.2rem;
   }
 }
 
@@ -60,6 +60,10 @@
   flex: 1; /* Permite que las cajas crezcan y se encojan por igual */
   min-width: 0; /* Anula cualquier min-width heredado o por defecto */
   box-sizing: border-box; /* Asegura que el padding se incluya en el tamaño */
+
+  @media (max-width: 480px) {
+    padding: 0.5rem 0.2rem; /* Padding horizontal mínimo */
+  }
 }
 
 .time-value {
@@ -72,7 +76,7 @@
     font-size: 2rem;
   }
   @media (max-width: 480px) {
-    font-size: 1.5rem;
+    font-size: 1.2rem; /* Fuente más pequeña para móviles muy pequeños */
   }
 }
 
@@ -84,6 +88,6 @@
   color: theme.$invitation-text-color;
 
   @media (max-width: 480px) {
-    font-size: 0.7rem;
+    font-size: 0.6rem; /* Fuente más pequeña para móviles muy pequeños */
   }
 } 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, FormArray, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } from '@angular/forms';
+import { InvitationDataService } from '../../../../core/services/invitation-data.service';
+import { InvitationData } from '../../../../core/models/invitation.model';
 
 @Component({
   selector: 'app-rsvp-form',
@@ -10,44 +12,48 @@ import { FormBuilder, FormGroup, FormArray, FormControl, ReactiveFormsModule } f
   styleUrls: ['./rsvp-form.component.scss']
 })
 export class RsvpFormComponent implements OnInit {
-  // Simulación de datos de la invitación
-  invitationTo = "Familia Hernández";
-  predefinedGuests = [
-    { name: 'Sarai Flores', isEditable: false },
-    { name: 'Mauricio Garcia', isEditable: false },
-    { name: 'Acompañante 3', isEditable: true },
-    { name: 'Acompañante 4', isEditable: true }
-  ];
-
   rsvpForm: FormGroup;
+  invitationTo = 'Familia Hernández';
+  invitationData?: InvitationData;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private invitationDataService: InvitationDataService
+  ) {
     this.rsvpForm = this.fb.group({
       guests: this.fb.array([]),
       message: ['']
     });
   }
 
-  ngOnInit() {
-    this.initializeGuestForms();
+  ngOnInit(): void {
+    this.invitationDataService.getInvitationData().subscribe(data => {
+      this.invitationData = data;
+    });
+
+    // Simulación de datos de invitados
+    this.addGuest('Joshua Hernandez', true);
+    this.addGuest('Acompañante 1', true);
+    this.addGuest('Acompañante 2', false);
+    this.addGuest('Acompañante 3', false);
   }
 
-  get guests(): FormArray {
+  get guests() {
     return this.rsvpForm.get('guests') as FormArray;
   }
 
-  initializeGuestForms() {
-    this.predefinedGuests.forEach(guest => {
-      this.guests.push(this.fb.group({
-        name: [guest.name],
-        isEditable: [guest.isEditable],
-        attendance: ['attending'] // 'attending' o 'not_attending'
-      }));
+  addGuest(name: string, isEditable: boolean): void {
+    const guestGroup = this.fb.group({
+      name: [{ value: name, disabled: !isEditable }],
+      attendance: ['attending', Validators.required],
+      isEditable: [isEditable]
     });
+    this.guests.push(guestGroup);
   }
 
-  onSubmit() {
-    console.log('Confirmación enviada:', this.rsvpForm.value);
-    alert('¡Gracias por tu respuesta!');
+  onSubmit(): void {
+    if (this.rsvpForm.valid) {
+      console.log(this.rsvpForm.value);
+    }
   }
 } 

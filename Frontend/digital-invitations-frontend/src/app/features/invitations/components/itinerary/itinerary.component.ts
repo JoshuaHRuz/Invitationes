@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { InvitationDataService } from '../../../../core/services/invitation-data.service';
+import { InvitationData } from '../../../../core/models/invitation.model';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-itinerary',
@@ -8,16 +12,14 @@ import { CommonModule } from '@angular/common';
   templateUrl: './itinerary.component.html',
   styleUrls: ['./itinerary.component.scss']
 })
-export class ItineraryComponent {
-  timeline = [
-    { time: '12:00', title: 'Ceremonia Religiosa', icon: '/assets/icons/church.png' },
-    { time: '15:30', title: 'Recepción y Cóctel', icon: '/assets/icons/drink.png' },
-    { time: '16:00', title: 'Sesión de Fotos', icon: '/assets/icons/camera.png' },
-    { time: '17:00', title: 'Comida', icon: '/assets/icons/comida.png' },
-    { time: '18:00', title: '¡A bailar!', icon: '/assets/icons/music-dance.png' },
-    { time: '20:00', title: 'Brindis', icon: '/assets/icons/glass.png' },
-    { time: '20:15', title: 'Baile de los Novios', icon: '/assets/icons/dance.png' },
-    { time: '21:00', title: 'Corte de Pastel', icon: '/assets/icons/cake.png' },
-    { time: '21:20', title: '¡Disfruta la Fiesta!', icon: '/assets/icons/music-dance.png' }
-  ];
+export class ItineraryComponent implements OnInit {
+  timeline$!: Observable<InvitationData['itinerary']>;
+
+  constructor(private invitationDataService: InvitationDataService) {}
+
+  ngOnInit(): void {
+    this.timeline$ = this.invitationDataService.getInvitationData().pipe(
+      map(data => data.itinerary)
+    );
+  }
 } 

@@ -9,6 +9,12 @@
   display: flex;
   flex-wrap: wrap; /* Para que se ajuste en móviles */
   min-height: 400px;
+
+  &.reception-mobile-order {
+    @media (max-width: 767px) {
+      flex-direction: column-reverse; /* Invierte el orden de los hijos */
+    }
+  }
 }
 
 .event-image-col, .event-info-col {

@@ -1,5 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { InvitationDataService } from '../../../../core/services/invitation-data.service';
+import { InvitationData } from '../../../../core/models/invitation.model';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-story',
@@ -9,18 +13,21 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./story.component.scss']
 })
 export class StoryComponent implements OnInit, OnDestroy {
-  children = [
-    { name: 'Luis Manuel Hernández', photo: 'assets/images/photos/son-1.png' },
-    { name: 'Paola Horta Rojas', photo: 'assets/images/photos/son-2.png' },
-    { name: 'José Alberto Vallejo Aguilar', photo: 'assets/images/photos/son-3.png' }
-  ];
+  invitationData$!: Observable<InvitationData>;
+  children: InvitationData['story']['children'] = [];
 
   currentChildIndex = 0;
   currentChildTransform = 0;
   private intervalId: any;
 
+  constructor(private invitationDataService: InvitationDataService) {}
+
   ngOnInit() {
-    this.startCarousel();
+    this.invitationData$ = this.invitationDataService.getInvitationData();
+    this.invitationData$.subscribe(data => {
+      this.children = data.story.children;
+      this.startCarousel();
+    });
   }
 
   ngOnDestroy() {
@@ -30,9 +37,11 @@ export class StoryComponent implements OnInit, OnDestroy {
   }
 
   startCarousel() {
-    this.intervalId = setInterval(() => {
-      this.nextChild();
-    }, 5000); // Cambia cada 5 segundos
+    if (this.children.length > 1) {
+      this.intervalId = setInterval(() => {
+        this.nextChild();
+      }, 5000);
+    }
   }
 
   nextChild() {

@@ -5,6 +5,7 @@
   padding-right: 0rem;
   background-color: theme.$invitation-background-color;
   color: theme.$invitation-text-color;
-  width: 100vw; /* Asegura que el contenedor ocupe el 100% del ancho del viewport */
-  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+  width: 100%; /* Cambiado de 100vw a 100% para evitar desbordamiento */
+  overflow-x: hidden; /* Corta cualquier contenido que se desborde horizontalmente */
+  box-sizing: border-box; 
 } 

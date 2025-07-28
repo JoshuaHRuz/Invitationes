@@ -17,7 +17,7 @@
           </div>
           <div class="ticket-info">
             <span class="ticket-number">Boleto #{{ i + 1 }}</span>
-            <h3 class="ticket-event-name">Boda Ana y Alberto</h3>
+            <h3 class="ticket-event-name">{{ invitationData?.eventTitle }}</h3>
             <div class="guest-name-container">
               <label>Invitado:</label>
               <input type="text" formControlName="name" [readOnly]="!guest.value.isEditable" class="guest-name-input">

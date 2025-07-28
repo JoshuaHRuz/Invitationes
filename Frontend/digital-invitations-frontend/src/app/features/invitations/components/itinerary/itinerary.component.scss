@@ -147,7 +147,7 @@
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
   .timeline {
-    padding-left: 20px; /* Espacio para la nueva línea de tiempo */
+    padding-left: 15px; /* Espacio más ajustado para la nueva línea de tiempo */
   }
   
   /* Redefinir la línea de tiempo para que esté a la izquierda */
@@ -158,46 +158,46 @@
 
   /* Ajustar cada item de la lista */
   .timeline > li {
-    margin-bottom: 30px;
+    margin-bottom: 25px; /* Un poco menos de espacio entre items */
     position: relative;
   }
 
   /* Reposicionar el círculo en la nueva línea */
   .timeline-badge {
     left: 0; /* Alinear con la línea */
-    top: 16px;
+    top: 12px; /* Subir un poco el círculo */
     margin-left: 0;
   }
 
   /* Paneles a la derecha de la línea */
   .timeline-panel {
-    width: 100%;
+    width: calc(100% - 25px); /* Calcuar el 100% menos el margen */
     float: none;
-    margin-left: 30px; /* Espacio entre la línea y el panel */
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-left: 25px; /* Menor espacio entre la línea y el panel */
+    padding: 12px 15px; /* Padding más ajustado */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
   }
 
   /* Asegurar que el panel invertido también se alinee a la derecha */
   .timeline-inverted .timeline-panel {
     float: none;
-    margin-left: 30px;
+    margin-left: 25px;
   }
 
   .timeline-heading {
-    gap: 12px;
+    gap: 10px; /* Menor espacio entre icono y texto */
   }
 
   .timeline-icon {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
   }
 
   .timeline-time {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .timeline-title {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 } 
