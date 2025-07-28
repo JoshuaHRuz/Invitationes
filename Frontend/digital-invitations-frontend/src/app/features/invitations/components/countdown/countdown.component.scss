@@ -41,17 +41,25 @@
 .timer {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem; /* Un gap consistente para empezar */
   margin-top: 2rem;
-  color: theme.$invitation-text-color; /* Aseguramos que el texto del timer sea negro */
+  padding: 0 1rem; /* Añadir padding horizontal para que no toque los bordes */
+  color: theme.$invitation-text-color;
+
+  @media (max-width: 480px) {
+    gap: 0.5rem; /* Reducir aún más el espacio */
+    padding: 0 0.5rem;
+  }
 }
 
 .time-box {
-  background-color: transparent; /* Sin fondo de color */
-  padding: 1.5rem;
+  background-color: transparent;
+  padding: 1rem 0.5rem; /* Ajustar padding */
   border-radius: 8px;
   border: 1px solid theme.$invitation-primary-color;
-  min-width: 120px;
+  flex: 1; /* Permite que las cajas crezcan y se encojan por igual */
+  min-width: 0; /* Anula cualquier min-width heredado o por defecto */
+  box-sizing: border-box; /* Asegura que el padding se incluya en el tamaño */
 }
 
 .time-value {
@@ -59,6 +67,13 @@
   font-size: 3rem;
   font-weight: 700;
   line-height: 1;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 }
 
 .time-label {
@@ -66,5 +81,9 @@
   font-size: 1rem;
   text-transform: uppercase;
   margin-top: 0.5rem;
-  color: theme.$invitation-text-color; /* Aseguramos que la etiqueta sea negra */
+  color: theme.$invitation-text-color;
+
+  @media (max-width: 480px) {
+    font-size: 0.7rem;
+  }
 } 

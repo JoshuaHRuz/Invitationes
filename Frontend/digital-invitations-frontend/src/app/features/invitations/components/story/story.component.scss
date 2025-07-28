@@ -16,7 +16,8 @@
 }
 
 .main-image {
-  max-width: 500px;
+  width: 100%; /* Ocupa el ancho del contenedor */
+  max-width: 400px; /* Tamaño máximo en pantallas grandes */
   margin-bottom: 2rem;
   border-radius: 8px;
 }
@@ -42,15 +43,19 @@
 }
 
 .vows-section {
-  display: flex; /* Asegura que los hijos se pongan en fila */
-  flex-wrap: wrap; /* Permite que se ajusten si no hay espacio */
-  justify-content: center; /* Centra los elementos */
-  gap: 2rem; /* Espacio entre los votos */
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center;
+  gap: 2rem;
   margin-top: 3rem;
   
   .col-md-6 {
-      flex: 1; /* Permite que crezcan y ocupen el espacio */
-      min-width: 300px; /* Ancho mínimo para cada voto */
+      flex: 1; 
+      min-width: 300px; 
+      
+      @media (max-width: 768px) {
+        min-width: 100%; /* Ocupa el ancho completo en móvil */
+      }
   }
 
   h4 {
@@ -70,6 +75,7 @@
 }
 
 .flower-divider {
+  width: 100%;
   max-width: 300px; /* Duplicando el tamaño */
   margin-bottom: 2rem;
 }
@@ -86,18 +92,28 @@
 }
 
 .child-photo {
-  width: 300px; /* Doble de tamaño */
-  height: 300px; /* Doble de tamaño */
+  width: 100%; /* La foto ocupa el ancho del item */
+  padding-top: 100%; /* Crea un aspect-ratio de 1:1 */
+  position: relative;
   border-radius: 50%;
-  object-fit: cover;
+  overflow: hidden;
   margin-bottom: 1rem;
   border: 4px solid theme.$invitation-primary-color;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 } 
 
 .children-carousel-container {
   position: relative;
-  width: 100%;
-  max-width: 500px; /* Doble de tamaño */
+  width: 80%; /* Ocupa un porcentaje del contenedor padre */
+  max-width: 300px; /* Tamaño máximo para el carrusel */
   margin: 2rem auto;
   overflow: hidden;
 }
@@ -111,7 +127,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(249, 196, 204, 0.7); /* Color rosa */
+  background-color: theme.$invitation-primary-color; /* Color rosa */
   color: white; /* Color de texto negro */
   border: none;
   font-size: 2rem; /* Flecha más grande */

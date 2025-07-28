@@ -5,6 +5,10 @@
   padding: 4rem 0;
   text-align: center;
   background-color: #fff; /* Fondo blanco sólido */
+
+  @media (max-width: 768px) {
+    padding: 2rem 1rem; /* Añadir padding horizontal en móviles */
+  }
 }
 
 .section-title {
@@ -31,6 +35,10 @@
   list-style: none;
   padding: 20px 0;
   position: relative;
+
+  @media (max-width: 768px) {
+    padding: 0;
+  }
 }
 
 /* La línea vertical central */
@@ -49,6 +57,11 @@
 .timeline > li {
   margin-bottom: 20px;
   position: relative;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
   &::after {
     content: "";
     display: table;
@@ -79,10 +92,22 @@
   position: relative;
   background-color: #fff;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+
+  @media (max-width: 768px) {
+    width: 100%;
+    float: none;
+    margin-bottom: 20px;
+    padding: 15px; /* Ajustar padding en móviles */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra más sutil */
+  }
 }
 
 .timeline-inverted .timeline-panel {
   float: right;
+  
+  @media (max-width: 768px) {
+    float: none;
+  }
 }
 
 /* Alineación del contenido del panel */
@@ -129,17 +154,5 @@
   /* Ocultar los círculos */
   .timeline-badge {
     display: none;
-  }
-
-  /* Paneles a ancho completo y alineados a la izquierda */
-  .timeline-panel {
-    width: 100%;
-    float: none;
-    margin-bottom: 20px;
-  }
-
-  /* Asegurar que todos los paneles se comporten igual */
-  .timeline-inverted .timeline-panel {
-    float: none;
   }
 } 

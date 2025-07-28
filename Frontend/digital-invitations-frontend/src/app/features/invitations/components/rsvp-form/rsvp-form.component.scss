@@ -42,6 +42,12 @@
   padding: 1.5rem;
   gap: 1.5rem;
   text-align: left;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
 }
 
 .ticket-visual {
@@ -67,6 +73,13 @@
   position: relative;
   border-left: 2px dashed #ddd;
   padding-left: 1.5rem;
+
+  @media (max-width: 768px) {
+    border-left: none;
+    border-top: 2px dashed #ddd;
+    padding-left: 0;
+    padding-top: 1rem;
+  }
 }
 
 .ticket-number {
@@ -81,6 +94,10 @@
   font-family: 'Playfair Display', serif;
   font-size: 1.5rem;
   margin: 0 0 1rem 0;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 }
 
 .guest-name-container {
@@ -105,6 +122,11 @@
 .attendance-options {
   display: flex;
   gap: 1.5rem;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 
 .radio-label {
@@ -172,4 +194,10 @@
   cursor: pointer;
   transition: transform 0.3s ease;
   &:hover { transform: scale(1.05); }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1rem;
+  }
 } 

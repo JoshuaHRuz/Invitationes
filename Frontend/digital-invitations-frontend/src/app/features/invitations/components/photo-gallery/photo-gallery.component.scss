@@ -20,46 +20,36 @@
 }
 
 .gallery-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3.5rem; /* Espacio uniforme entre imágenes */
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Reducido para mejor ajuste en móvil */
+  gap: 1.5rem;
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en escritorio */
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; /* 1 columna en móvil */
+  }
 }
 
 .gallery-item {
-  flex: 1 1 45%; /* Permite que crezca, pero la base es ~45% para 2 por fila */
-  max-width: 45%; /* Máximo para asegurar 2 columnas */
-  
+  width: 100%;
   img {
     width: 100%;
     height: auto;
-    border-radius: 12px; /* Esquinas más redondeadas */
+    border-radius: 12px;
     border: 3px solid theme.$invitation-primary-color;
     padding: 5px;
+    box-sizing: border-box;
+    display: block;
   }
 }
 
-/* Responsive adjustments */
-@media (max-width: 992px) {
-  .gallery-grid {
-    column-count: 2;
-  }
-}
-
-@media (max-width: 576px) {
-  .gallery-grid {
-    column-count: 1;
-  }
-}
-
-@media (max-width: 768px) {
-  .gallery-item {
-    flex: 1 1 100%; /* Una sola columna en pantallas más pequeñas */
-    max-width: 100%;
-  }
-}
+/* Se eliminan las media queries anteriores para un layout de grid fluido */
 
 .flower-divider {
+  width: 100%;
   max-width: 300px;
   margin-top: 3rem;
 } 
