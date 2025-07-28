@@ -1,3 +1,5 @@
+@use '../../styles/invitation-theme' as theme;
+
 /* Styles for itinerary component */ 
 .itinerary-section {
   padding: 4rem 0;
@@ -15,7 +17,7 @@
 .divider {
   width: 80px;
   height: 2px;
-  background-color: var(--invitation-primary-color, #F9C4CC);
+  background-color: var(--invitation-primary-color, theme.$invitation-primary-color);
   margin: 0 auto 3rem auto;
 }
 
@@ -62,7 +64,7 @@
   top: 24px;
   left: 50%;
   margin-left: -8px;
-  background-color: var(--invitation-primary-color, #F9C4CC);
+  background-color: theme.$invitation-primary-color;
   z-index: 100;
   border-radius: 50%;
   border: 3px solid white;
@@ -102,14 +104,14 @@
 .timeline-time {
   font-size: 1.1rem;
   font-weight: bold;
-  color: var(--invitation-secondary-color, #7DB266);
+  color: theme.$invitation-secondary-color;
 }
 
 .timeline-title {
   margin-top: 2px;
   font-size: 1rem;
   font-weight: 500;
-  color: var(--invitation-text-color, #000000);
+  color: theme.$invitation-text-color;
 }
 
 /* Eliminar las flechas viejas */

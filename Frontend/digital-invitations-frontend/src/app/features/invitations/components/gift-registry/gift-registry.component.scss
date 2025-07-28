@@ -1,3 +1,5 @@
+@use '../../styles/invitation-theme' as theme;
+
 .gift-registry-section {
   padding: 4rem 0;
   text-align: center;
@@ -23,16 +25,16 @@
 }
 
 .section-title {
-  font-family: 'Playfair Display', serif;
+  font-family: theme.$invitation-font-serif;
   font-size: 2.5rem;
-  color: var(--invitation-text-color, #000000);
+  color: theme.$invitation-text-color;
   margin-bottom: 1rem;
 }
 
 .divider {
   width: 80px;
   height: 2px;
-  background-color: var(--invitation-primary-color, #F9C4CC);
+  background-color: theme.$invitation-primary-color;
   margin: 0 auto 2rem auto;
 }
 
@@ -63,7 +65,7 @@
   max-width: 500px;
   margin: 0 auto;
   padding: 1.5rem;
-  border: 1px solid var(--invitation-primary-color, #F9C4CC);
+  border: 1px solid theme.$invitation-primary-color;
   border-radius: 8px;
 }
 

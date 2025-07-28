@@ -1,0 +1,14 @@
+@use "sass:color";
+
+// Archivo central para el tema de la invitación
+
+// --- Paleta de Colores ---
+$invitation-primary-color: blue;   // Rosa
+$invitation-secondary-color: #7DB266; // Verde
+$invitation-text-color: #000000;      // Negro
+$invitation-background-color: #ffffff; // Blanco
+$invitation-light-gray: #f7f3f0;      // Gris claro para fondos
+$invitation-border-color: #eeeeee;   // Gris para bordes y líneas
+
+// --- Tipografía ---
+$invitation-font-serif: 'Playfair Display', serif; 

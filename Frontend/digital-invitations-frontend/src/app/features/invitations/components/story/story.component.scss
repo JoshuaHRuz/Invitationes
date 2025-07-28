@@ -1,11 +1,13 @@
+@use '../../styles/invitation-theme' as theme;
+
 .story-section {
   padding: 4rem 0;
   text-align: center;
 }
 
 .section-title, .couple-name {
-  font-family: 'Playfair Display', serif;
-  color: var(--invitation-text-color, #000000);
+  font-family: theme.$invitation-font-serif;
+  color: theme.$invitation-text-color;
 }
 
 .section-title {
@@ -21,13 +23,13 @@
 
 .couple-name {
   font-size: 2rem;
-  color: var(--invitation-primary-color, #F9C4CC);
+  color: theme.$invitation-primary-color;
 }
 
 .wedding-date {
   display: block;
   font-size: 1.1rem;
-  color: var(--invitation-secondary-color, #7DB266);
+  color: theme.$invitation-secondary-color;
   margin-top: 0.5rem;
   letter-spacing: 2px;
 }
@@ -35,7 +37,7 @@
 .divider {
   width: 80px;
   height: 2px;
-  background-color: var(--invitation-primary-color, #F9C4CC);
+  background-color: theme.$invitation-primary-color;
   margin: 1.5rem auto;
 }
 
@@ -52,10 +54,10 @@
   }
 
   h4 {
-    font-family: 'Playfair Display', serif;
+    font-family: theme.$invitation-font-serif;
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    color: var(--invitation-text-color, #000000);
+    color: theme.$invitation-text-color;
   }
   p {
     font-style: italic;
@@ -89,7 +91,7 @@
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
-  border: 4px solid var(--invitation-primary-color, #F9C4CC);
+  border: 4px solid theme.$invitation-primary-color;
 } 
 
 .children-carousel-container {
@@ -109,8 +111,8 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: var(--invitation-primary-color, #F9C4CC); /* Color rosa */
-  color: var(--invitation-text-color, #000000); /* Color de texto negro */
+  background-color: rgba(249, 196, 204, 0.7); /* Color rosa */
+  color: white; /* Color de texto negro */
   border: none;
   font-size: 2rem; /* Flecha más grande */
   cursor: pointer;
@@ -124,7 +126,7 @@
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: var(--invitation-secondary-color, #7DB266); /* Verde en hover */
+    background-color: theme.$invitation-secondary-color; /* Verde en hover */
   }
 }
 

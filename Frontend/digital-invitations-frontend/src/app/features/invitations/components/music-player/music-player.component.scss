@@ -1,10 +1,12 @@
+@use '../../styles/invitation-theme' as theme;
+
 .music-player-container {
   position: fixed;
   bottom: 30px;
   right: 30px;
   width: 60px;
   height: 60px;
-  background-color: var(--invitation-primary-color, #F9C4CC);
+  background-color: theme.$invitation-primary-color;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -16,11 +18,11 @@
 
   &:hover {
     transform: scale(1.1);
-    background-color: var(--invitation-secondary-color, #7DB266);
+    background-color: theme.$invitation-secondary-color;
   }
 }
 
 .music-player-container i {
-  color: var(--invitation-text-color, #000000);
+  color: theme.$invitation-text-color;
   font-size: 24px;
 } 

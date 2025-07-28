@@ -1,11 +1,14 @@
+@use "sass:color";
+@use '../../styles/invitation-theme' as theme;
+
 .rsvp-section {
   padding: 4rem 2rem;
   text-align: center;
-  background-color: #f7f3f0;
+  background-color: theme.$invitation-light-gray;
 }
 
 .section-title {
-  font-family: 'Playfair Display', serif;
+  font-family: theme.$invitation-font-serif;
   font-size: 2.5rem;
 }
 
@@ -115,7 +118,7 @@
 
 .message-container {
   margin-top: 3rem;
-  h4 { font-family: 'Playfair Display', serif; }
+  h4 { font-family: theme.$invitation-font-serif; }
   textarea {
     width: 100%;
     max-width: 800px;
@@ -131,10 +134,37 @@
   margin-top: 2rem;
 }
 
+.btn-rsvp {
+  &.yes {
+    background-color: theme.$invitation-secondary-color;
+    border-color: theme.$invitation-secondary-color;
+    
+    &:hover {
+      background-color: color.adjust(theme.$invitation-secondary-color, $lightness: -10%);
+    }
+  }
+
+  &.no {
+    border-color: theme.$invitation-text-color;
+    color: theme.$invitation-text-color;
+    
+    &:hover {
+      background-color: theme.$invitation-text-color;
+    }
+  }
+}
+
+.guest-input {
+  &:focus {
+    border-color: theme.$invitation-primary-color;
+    box-shadow: 0 0 5px rgba(249, 196, 204, 0.5); // Mantengo el RGBA por la opacidad
+  }
+}
+
 .btn-submit {
   padding: 12px 40px;
-  background-color: var(--invitation-primary-color, #F9C4CC);
-  color: var(--invitation-text-color, #000000);
+  background-color: theme.$invitation-primary-color;
+  color: theme.$invitation-text-color;
   border: none;
   border-radius: 50px;
   font-size: 1.1rem;

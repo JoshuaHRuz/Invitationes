@@ -1,10 +1,12 @@
+@use '../../styles/invitation-theme' as theme;
+
 .mascara-play {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--invitation-background-color, #ffffff); /* Fallback por si la variable no está disponible */
+  background-color: theme.$invitation-light-gray;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,9 +15,9 @@
 }
 
 .welcome-title {
-  font-family: 'Playfair Display', serif;
+  font-family: theme.$invitation-font-serif;
   font-size: 4rem;
-  color: var(--invitation-text-color, #000000); /* Usa el color de texto de la invitación */
+  color: theme.$invitation-text-color;
   line-height: 1.2;
 }
 
@@ -68,19 +70,18 @@
   font-size: 1.5rem;
   padding: 12px 35px;
   border-radius: 50px;
-  background-color: var(--invitation-primary-color, #F9C4CC); /* Usa el color primario de la invitación */
-  color: var(--invitation-text-color, #000000); /* Usa el color de texto de la invitación */
+  background-color: theme.$invitation-primary-color;
+  color: theme.$invitation-text-color;
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 2px;
-  border: 2px solid var(--invitation-primary-color, #F9C4CC);
+  border: 2px solid theme.$invitation-primary-color;
   transition: all 0.3s ease;
   cursor: pointer;
 
   &:hover {
-    background-color: var(--invitation-secondary-color, #7DB266); /* Usa el color secundario para el hover */
-    border-color: var(--invitation-secondary-color, #7DB266);
+    background-color: theme.$invitation-secondary-color;
+    border-color: theme.$invitation-secondary-color;
     transform: scale(1.05);
   }
-}
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap'); 
+} 

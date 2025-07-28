@@ -1,3 +1,5 @@
+@use '../../styles/invitation-theme' as theme;
+
 .countdown-section {
   position: relative;
   padding: 5rem 0;
@@ -22,17 +24,17 @@
 }
 
 .countdown-title {
-  font-family: 'Playfair Display', serif;
+  font-family: theme.$invitation-font-serif;
   font-size: 2.5rem;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: var(--invitation-text-color, #000000); /* Usamos el color de texto del tema */
+  color: theme.$invitation-text-color; /* Usamos el color de texto del tema */
 }
 
 .divider {
   width: 80px;
   height: 2px;
-  background-color: var(--invitation-primary-color, #F9C4CC);
+  background-color: theme.$invitation-primary-color;
   margin: 1.5rem auto;
 }
 
@@ -41,14 +43,14 @@
   justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
-  color: var(--invitation-text-color, #000000); /* Aseguramos que el texto del timer sea negro */
+  color: theme.$invitation-text-color; /* Aseguramos que el texto del timer sea negro */
 }
 
 .time-box {
   background-color: transparent; /* Sin fondo de color */
   padding: 1.5rem;
   border-radius: 8px;
-  border: 1px solid var(--invitation-primary-color, #F9C4CC);
+  border: 1px solid theme.$invitation-primary-color;
   min-width: 120px;
 }
 
@@ -64,5 +66,5 @@
   font-size: 1rem;
   text-transform: uppercase;
   margin-top: 0.5rem;
-  color: var(--invitation-text-color, #000000); /* Aseguramos que la etiqueta sea negra */
+  color: theme.$invitation-text-color; /* Aseguramos que la etiqueta sea negra */
 } 

@@ -1,14 +1,11 @@
+@use '../../styles/invitation-theme' as theme;
+
 .invitation-footer {
-  padding: 4rem 2rem 2rem;
-  background-color: var(--invitation-secondary-color, #7DB266);
-  text-align: center;
-  color: white;
+  background-color: theme.$invitation-secondary-color;
 }
 
 .thank-you-message {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  font-family: theme.$invitation-font-serif;
 }
 
 .couple-names {
