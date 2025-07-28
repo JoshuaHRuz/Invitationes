@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } from '@angular/forms';
 import { InvitationDataService } from '../../../../core/services/invitation-data.service';
-import { InvitationData } from '../../../../core/models/invitation.model';
+import { InvitationData, Attendee } from '../../../../core/models/invitation.model';
 
 @Component({
   selector: 'app-rsvp-form',
@@ -13,8 +13,9 @@ import { InvitationData } from '../../../../core/models/invitation.model';
 })
 export class RsvpFormComponent implements OnInit {
   rsvpForm: FormGroup;
-  invitationTo = 'Familia Hernández';
+  invitationTo?: string;
   invitationData?: InvitationData;
+  eventDate?: { dayOfWeek: string, dayOfMonth: string, month: string, year: string };
 
   constructor(
     private fb: FormBuilder,
@@ -28,23 +29,34 @@ export class RsvpFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.invitationData = this.invitationDataService.getInvitationData();
+    this.invitationTo = this.invitationData.guestGroup.groupName;
+    this.formatEventDate(this.invitationData.date);
 
-    // Simulación de datos de invitados
-    this.addGuest('Joshua Hernandez', true);
-    this.addGuest('Acompañante 1', true);
-    this.addGuest('Acompañante 2', false);
-    this.addGuest('Acompañante 3', false);
+    // Generar los campos de invitado desde el servicio
+    this.invitationData.guestGroup.attendees.forEach(attendee => {
+      this.addGuest(attendee);
+    });
+  }
+
+  private formatEventDate(dateString: string): void {
+    const date = new Date(dateString);
+    this.eventDate = {
+      dayOfWeek: date.toLocaleDateString('es-ES', { weekday: 'long' }),
+      dayOfMonth: date.toLocaleDateString('es-ES', { day: '2-digit' }),
+      month: date.toLocaleDateString('es-ES', { month: 'short' }),
+      year: date.getFullYear().toString()
+    };
   }
 
   get guests() {
     return this.rsvpForm.get('guests') as FormArray;
   }
 
-  addGuest(name: string, isEditable: boolean): void {
+  addGuest(attendee: Attendee): void {
     const guestGroup = this.fb.group({
-      name: [{ value: name, disabled: !isEditable }],
+      name: [{ value: attendee.name, disabled: !attendee.isEditable }],
       attendance: ['attending', Validators.required],
-      isEditable: [isEditable]
+      isEditable: [attendee.isEditable]
     });
     this.guests.push(guestGroup);
   }

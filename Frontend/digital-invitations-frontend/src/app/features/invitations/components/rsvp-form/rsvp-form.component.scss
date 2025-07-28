@@ -89,6 +89,13 @@
   right: 0;
   font-size: 0.9rem;
   color: #999;
+
+  @media (max-width: 768px) {
+    top: 5px; /* Baja el número para que no choque con la línea */
+    right: 5px;
+    background-color: #fff; /* Añade un fondo para tapar la línea punteada */
+    padding: 0 5px;
+  }
 }
 
 .ticket-event-name {
@@ -132,11 +139,50 @@
 }
 
 .radio-label {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   cursor: pointer;
+  position: relative;
+  padding-left: 28px;
+  font-size: 1rem;
+  
   input {
-    margin-right: 0.5rem;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .radio-custom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    transition: all 0.2s ease;
+  }
+
+  input:checked ~ .radio-custom {
+    background-color: theme.$invitation-primary-color;
+    border-color: theme.$invitation-primary-color;
+  }
+
+  .radio-custom::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+  
+  input:checked ~ .radio-custom::after {
+    display: block;
   }
 }
 

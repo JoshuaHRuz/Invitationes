@@ -8,11 +8,11 @@
       <div class="tickets-container" formArrayName="guests">
         <div class="ticket" *ngFor="let guest of guests.controls; let i = index" [formGroupName]="i">
           <div class="ticket-visual">
-            <img src="/assets/images/photos/couple-1.png" alt="Foto de la pareja" class="ticket-photo">
+            <img [src]="invitationData?.story?.mainImageUrl" alt="Foto de la pareja" class="ticket-photo">
             <div class="ticket-date">
-              <span>Sábado</span>
-              <span>04 Feb</span>
-              <span>2026</span>
+              <span class="text-capitalize">{{ eventDate?.dayOfWeek }}</span>
+              <span>{{ eventDate?.dayOfMonth }} {{ eventDate?.month }}</span>
+              <span>{{ eventDate?.year }}</span>
             </div>
           </div>
           <div class="ticket-info">
@@ -25,10 +25,12 @@
             <div class="attendance-options">
               <label class="radio-label">
                 <input type="radio" formControlName="attendance" value="attending">
+                <span class="radio-custom"></span>
                 <span>Si asistiré</span>
               </label>
               <label class="radio-label">
                 <input type="radio" formControlName="attendance" value="not_attending">
+                <span class="radio-custom"></span>
                 <span>No asistiré</span>
               </label>
             </div>

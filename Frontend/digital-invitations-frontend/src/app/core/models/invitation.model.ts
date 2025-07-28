@@ -12,6 +12,17 @@ export interface ComponentVisibility {
   footer: 0 | 1;
 }
 
+export interface Attendee {
+  name: string;
+  isEditable: boolean;
+}
+
+export interface GuestGroup {
+  groupName: string;
+  allowedPasses: number;
+  attendees: Attendee[];
+}
+
 export interface InvitationData {
   couple: {
     name1: string;
@@ -68,4 +79,5 @@ export interface InvitationData {
     };
   };
   componentVisibility: ComponentVisibility;
+  guestGroup: GuestGroup;
 } 

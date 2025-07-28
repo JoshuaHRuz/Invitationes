@@ -10,20 +10,26 @@
   flex-wrap: wrap; /* Para que se ajuste en móviles */
   min-height: 400px;
 
-  &.reception-mobile-order {
-    @media (max-width: 767px) {
-      flex-direction: column-reverse; /* Invierte el orden de los hijos */
-    }
+  @media (max-width: 767px) {
+    flex-direction: column-reverse; /* ¡Esta es la solución! Invierte el orden de imagen y descripción */
   }
 }
 
 .event-image-col, .event-info-col {
   width: 100%;
+
+  @media (min-width: 768px) {
+    width: 50%;
+  }
 }
 
-@media (min-width: 768px) {
-  .event-image-col, .event-info-col {
-    width: 50%;
+/* Forzar orden en móvil */
+@media (max-width: 767px) {
+  .event-info-col {
+    order: 1;
+  }
+  .event-image-col {
+    order: 2;
   }
 }
 

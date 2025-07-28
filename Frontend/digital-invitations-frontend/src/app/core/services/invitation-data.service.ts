@@ -29,7 +29,7 @@ export class InvitationDataService {
         location: 'Templo Cristo de la Montaña',
         address: 'Xocoyotzin 209, zona dos extendida, Azteca, 76085 Santiago de Querétaro, Qro.',
         time: '12:45 PM',
-        mapUrl: 'https://g.co/kgs/wTHKAFo',
+        mapUrl: 'https://maps.app.goo.gl/As2gwd7XVnMoA3RF8',
         imageUrl: '/assets/images/photos/church.png',
         imageOrder: 'right',
         dressCode: null
@@ -41,7 +41,7 @@ export class InvitationDataService {
         time: '',
         mapUrl: 'https://maps.app.goo.gl/Ld9r8odu7PJa6gsT7',
         imageUrl: '/assets/images/photos/venue.png',
-        imageOrder: 'left',
+        imageOrder: 'left', // Asegura el orden alternado en escritorio
         //dressCode: {
         //  title: 'Vestimenta Formal',
         //  icons: ['/assets/icons/vestido.svg', '/assets/icons/traje.svg']
@@ -96,6 +96,16 @@ export class InvitationDataService {
       itinerary: 1,
       rsvpForm: 1,
       footer: 1
+    },
+    guestGroup: {
+      groupName: 'Familia Hernández',
+      allowedPasses: 4,
+      attendees: [
+        { name: 'Enrique Hernández', isEditable: false },
+        { name: 'Ana María Hernández', isEditable: false },
+        { name: 'José Alberto Hernández', isEditable: false },
+        { name: 'Paola Horta Hernández', isEditable: false }
+      ]
     }
   };
 
