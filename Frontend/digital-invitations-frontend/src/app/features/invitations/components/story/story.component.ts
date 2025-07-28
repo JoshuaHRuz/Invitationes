@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InvitationDataService } from '../../../../core/services/invitation-data.service';
 import { InvitationData } from '../../../../core/models/invitation.model';
@@ -17,12 +17,19 @@ export class StoryComponent implements OnInit, OnDestroy {
   currentChildIndex = 0;
   currentChildTransform = 0;
   private intervalId: any;
+  isDesktop = false;
 
   constructor(private invitationDataService: InvitationDataService) {}
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.checkScreenSize();
+  }
 
   ngOnInit() {
     this.invitationData = this.invitationDataService.getInvitationData();
     this.children = this.invitationData.story.children;
+    this.checkScreenSize();
     this.startCarousel();
   }
 
@@ -32,8 +39,14 @@ export class StoryComponent implements OnInit, OnDestroy {
     }
   }
 
+  checkScreenSize() {
+    this.isDesktop = window.innerWidth >= 992;
+    this.currentChildIndex = 0; // Reset index on resize
+    this.updateTransform();
+  }
+
   startCarousel() {
-    if (this.children.length > 1) {
+    if (this.children.length > (this.isDesktop ? 2 : 1)) {
       this.intervalId = setInterval(() => {
         this.nextChild();
       }, 5000);
@@ -41,16 +54,26 @@ export class StoryComponent implements OnInit, OnDestroy {
   }
 
   nextChild() {
-    this.currentChildIndex = (this.currentChildIndex + 1) % this.children.length;
+    const maxIndex = this.isDesktop ? this.children.length - 2 : this.children.length - 1;
+    if (this.currentChildIndex < maxIndex) {
+      this.currentChildIndex++;
+    } else {
+      this.currentChildIndex = 0;
+    }
     this.updateTransform();
   }
 
   prevChild() {
-    this.currentChildIndex = (this.currentChildIndex - 1 + this.children.length) % this.children.length;
+    if (this.currentChildIndex > 0) {
+      this.currentChildIndex--;
+    } else {
+      this.currentChildIndex = this.isDesktop ? this.children.length - 2 : this.children.length - 1;
+    }
     this.updateTransform();
   }
 
   updateTransform() {
-    this.currentChildTransform = -this.currentChildIndex * 100;
+    const step = this.isDesktop ? 50 : 100;
+    this.currentChildTransform = -this.currentChildIndex * step;
   }
 } 
