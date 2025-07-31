@@ -79,5 +79,8 @@ export interface InvitationData {
     };
   };
   componentVisibility: ComponentVisibility;
-  guestGroup: GuestGroup;
+  guestGroup?: GuestGroup;
+  rsvp: {
+    whatsappNumber: string;
+  };
 } 

@@ -8,19 +8,19 @@ export class InvitationDataService {
 
   private invitationData: InvitationData = {
     couple: {
-      name1: 'Ana',
-      name2: 'Alberto',
+      name1: 'Jocelyn Jazmín Ruiz Chávez',
+      name2: 'Hugo Israel Gonzalez Mendoza',
       vow1: '"Coincidir entre tanta gente no debió ser casualidad, sino destino."',
       vow2: '"Mis temores se marchan cada vez que me abrazas y me aseguras que todo irá bien."'
     },
-    eventTitle: 'Boda de Ana y Alberto',
-    fullEventTitle: 'Boda de<br>Ana y Alberto',
+    eventTitle: 'Boda de Jocelyn y Hugo',
+    fullEventTitle: 'Boda de<br>Jocelyn y Hugo',
     date: '2025-09-20T12:00:00',
     story: {
       mainImageUrl: 'assets/images/photos/main-image.jpeg',
       children: [
-        { name: 'Luis Manuel Hernández', photo: 'assets/images/photos/son-4.jpg' },
-        { name: 'Paola Horta Rojas', photo: 'assets/images/photos/son-5.jpg' },
+        { name: 'Joshua Israel González Ruiz', photo: 'assets/images/photos/son-4.jpg' },
+        { name: 'Jonathan Israel González', photo: 'assets/images/photos/son-5.jpg' },
       ]
     },
     events: [
@@ -37,10 +37,36 @@ export class InvitationDataService {
       {
         name: 'Hospedaje cercano',
         location: 'Campestre Italiana',
-        address: 'Villas del Cimatario 76087 Santiago de Querétaro, Qro.',
+        address: 'Calle boticelli 181. Campestre Italiana.',
         time: '',
-        mapUrl: 'https://maps.app.goo.gl/Ld9r8odu7PJa6gsT7',
+        mapUrl: 'https://maps.google.com/?q=20.544497,-100.374336',
         imageUrl: '/assets/images/photos/venue.png',
+        imageOrder: 'left', // Asegura el orden alternado en escritorio
+        //dressCode: {
+        //  title: 'Vestimenta Formal',
+        //  icons: ['/assets/icons/vestido.svg', '/assets/icons/traje.svg']
+        //}
+      },
+      {
+        name: 'Hospedaje cercano',
+        location: 'Motel Cimatario',
+        address: 'Libramiento Sur Pte 1201, Villas del Cimatario, Casa Blanca, 76080 Santiago de Querétaro, Qro.',
+        time: '',
+        mapUrl: 'https://maps.app.goo.gl/pDh2R9dp8xC7uavv5?g_st=aw',
+        imageUrl: '/assets/images/photos/venue2.png',
+        imageOrder: 'right', // Asegura el orden alternado en escritorio
+        //dressCode: {
+        //  title: 'Vestimenta Formal',
+        //  icons: ['/assets/icons/vestido.svg', '/assets/icons/traje.svg']
+        //}
+      },
+      {
+        name: 'Hospedaje cercano',
+        location: 'RDQ Motel Real de Querétaro',
+        address: 'Calle Lib. Sur-Poniente 850, Villas del Cimatario, San Andres, 76087 Santiago de Querétaro, Qro.',
+        time: '',
+        mapUrl: 'https://maps.app.goo.gl/siq8sk3BCrjJiAVb9?g_st=aw', 
+        imageUrl: '/assets/images/photos/venue3.png',
         imageOrder: 'left', // Asegura el orden alternado en escritorio
         //dressCode: {
         //  title: 'Vestimenta Formal',
@@ -49,7 +75,7 @@ export class InvitationDataService {
       }
     ],
     godparents: [
-      { type: '', icon: 'assets/icons/rings.png', names: ['Yolanda Guevara Silva', 'Fiwel Chávez Trejo Jijos', 'Jonathan Israel González', ' Joshua Israel González Ruiz'] },
+      { type: '', icon: 'assets/icons/rings.png', names: ['Yolanda Guevara Silva', 'Fiwel Chávez Trejo'] },
       //{ type: 'Fotografía', icon: 'assets/icons/camera.png', names: ['Joshua Michael Pasten Juárez'] },
       //{ type: 'Pastel', icon: 'assets/icons/cake.png', names: ['María Antonieta Pérez Hernández', 'Daniel Vega de la Rosa'] }
     ],
@@ -93,19 +119,12 @@ export class InvitationDataService {
       eventDetails: 1,
       photoGallery: 1,
       giftRegistry: 0,
-      itinerary: 1,
+      itinerary: 0,
       rsvpForm: 1,
       footer: 1
     },
-    guestGroup: {
-      groupName: 'Familia Hernández',
-      allowedPasses: 4,
-      attendees: [
-        { name: 'Enrique Hernández', isEditable: false },
-        { name: 'Ana María Hernández', isEditable: false },
-        { name: 'José Alberto Hernández', isEditable: false },
-        { name: 'Paola Horta Hernández', isEditable: false }
-      ]
+    rsvp: {
+      whatsappNumber: "+524422857766"
     }
   };
 

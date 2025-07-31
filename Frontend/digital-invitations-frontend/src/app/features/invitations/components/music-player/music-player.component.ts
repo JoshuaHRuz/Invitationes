@@ -40,7 +40,7 @@ export class MusicPlayerComponent implements OnInit, OnDestroy {
 
   private playAudio() {
     const audioPlayer = this.audioPlayerRef.nativeElement;
-    audioPlayer.play();
+      audioPlayer.play();
     this.isPlaying = true;
   }
 

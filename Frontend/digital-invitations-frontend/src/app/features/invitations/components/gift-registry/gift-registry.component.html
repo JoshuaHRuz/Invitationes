@@ -3,7 +3,7 @@
     <h2 class="section-title">Mesa de Regalos</h2>
     <div class="divider"></div>
     <p class="intro-message">{{ giftRegistry.message }}</p>
-
+    
     <div class="stores-container">
       <a *ngFor="let store of giftRegistry.stores" [href]="store.link" target="_blank" class="store-link">
         <img [src]="store.logoUrl" [alt]="store.name" class="store-logo">

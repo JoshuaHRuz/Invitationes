@@ -1,11 +1,14 @@
 <section class="rsvp-section">
   <div class="container">
     <h2 class="section-title">Confirmar Asistencia</h2>
-    <p class="invitation-to">Invitación para: <strong>{{ invitationTo }}</strong></p>
-    <p class="passes-info">Boletos disponibles</p>
+    <p class="invitation-to" *ngIf="hasGuests">Invitación para: <strong>{{ invitationTo }}</strong></p>
+    <p class="passes-info" *ngIf="hasGuests">Boletos disponibles</p>
+    <p *ngIf="!hasGuests" class="no-guests-message">
+      Por favor, confirma tu asistencia haciendo clic en el botón de abajo.
+    </p>
 
     <form [formGroup]="rsvpForm" (ngSubmit)="onSubmit()">
-      <div class="tickets-container" formArrayName="guests">
+      <div class="tickets-container" formArrayName="guests" *ngIf="hasGuests">
         <div class="ticket" *ngFor="let guest of guests.controls; let i = index" [formGroupName]="i">
           <div class="ticket-visual">
             <img [src]="invitationData?.story?.mainImageUrl" alt="Foto de la pareja" class="ticket-photo">
@@ -38,13 +41,15 @@
         </div>
       </div>
 
-      <div class="message-container">
+      <div class="message-container" *ngIf="hasGuests">
         <h4>Dedica un lindo mensaje...</h4>
         <textarea formControlName="message" placeholder="Tus palabras significan mucho para nosotros..."></textarea>
       </div>
 
       <div class="submit-container">
-        <button type="submit" class="btn-submit">Enviar Confirmación</button>
+        <button type="submit" class="btn-submit">
+          {{ hasGuests ? 'Enviar Confirmación' : 'Confirmar por WhatsApp' }}
+        </button>
       </div>
     </form>
   </div>

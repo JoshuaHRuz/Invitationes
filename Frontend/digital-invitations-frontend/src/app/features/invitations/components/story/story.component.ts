@@ -47,8 +47,8 @@ export class StoryComponent implements OnInit, OnDestroy {
 
   startCarousel() {
     if (this.children.length > (this.isDesktop ? 2 : 1)) {
-      this.intervalId = setInterval(() => {
-        this.nextChild();
+    this.intervalId = setInterval(() => {
+      this.nextChild();
       }, 5000);
     }
   }

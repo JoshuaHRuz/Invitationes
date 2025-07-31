@@ -16,6 +16,7 @@ export class RsvpFormComponent implements OnInit {
   invitationTo?: string;
   invitationData?: InvitationData;
   eventDate?: { dayOfWeek: string, dayOfMonth: string, month: string, year: string };
+  hasGuests: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -29,13 +30,20 @@ export class RsvpFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.invitationData = this.invitationDataService.getInvitationData();
-    this.invitationTo = this.invitationData.guestGroup.groupName;
     this.formatEventDate(this.invitationData.date);
 
-    // Generar los campos de invitado desde el servicio
-    this.invitationData.guestGroup.attendees.forEach(attendee => {
-      this.addGuest(attendee);
-    });
+    if (this.invitationData.guestGroup && this.invitationData.guestGroup.attendees) {
+      this.invitationTo = this.invitationData.guestGroup.groupName;
+      this.hasGuests = this.invitationData.guestGroup.attendees.length > 0;
+
+      if (this.hasGuests) {
+        this.invitationData.guestGroup.attendees.forEach(attendee => {
+          this.addGuest(attendee);
+        });
+      }
+    } else {
+      this.hasGuests = false;
+    }
   }
 
   private formatEventDate(dateString: string): void {
@@ -62,6 +70,13 @@ export class RsvpFormComponent implements OnInit {
   }
 
   onSubmit(): void {
+    if (!this.hasGuests) {
+      const whatsappNumber = this.invitationData?.rsvp.whatsappNumber;
+      const message = encodeURIComponent('¡Hola! confirmo mi asistencia a la boda.');
+      window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+      return;
+    }
+
     if (this.rsvpForm.valid) {
       console.log(this.rsvpForm.value);
     }
