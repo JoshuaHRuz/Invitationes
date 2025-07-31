@@ -10,8 +10,8 @@ export class InvitationDataService {
     couple: {
       name1: 'Jocelyn Jazmín Ruiz Chávez',
       name2: 'Hugo Israel Gonzalez Mendoza',
-      vow1: '"Coincidir entre tanta gente no debió ser casualidad, sino destino."',
-      vow2: '"Mis temores se marchan cada vez que me abrazas y me aseguras que todo irá bien."'
+      vow1: '"Amor, no puedo imaginar mi futuro sin ti, agradezco a dios y a mis hermanos que nos cruzáramos en nuestros caminos, disfruto cada minuto que pasamos juntos y quiero compartir mi vida contigo, te amoooo para siempre en tus días buenos y tus días no tan buenos, en los que estaré a tu lado para recordarte que vendrán tiempos mejores."',
+      vow2: '"Amor no tengo duda de que llegaste en el momento preciso y que fue Dios quién te envió. Siempre le estaré agradecido por enviarme tremendo Ángel. En todo momento me he sentido afortunado de que podamos recorrer juntos este camino llamada vida y estoy más que emocionado de continuar el trayecto en esta nueva etapa. Estoy contigo en las buenas y más aún en las no tan buenas, tomando tu mano para formar ese equipo que se enfrentara a cualquier reto de la vida."'
     },
     eventTitle: 'Boda de Jocelyn y Hugo',
     fullEventTitle: 'Boda de<br>Jocelyn y Hugo',
@@ -20,7 +20,7 @@ export class InvitationDataService {
       mainImageUrl: 'assets/images/photos/main-image.jpeg',
       children: [
         { name: 'Joshua Israel González Ruiz', photo: 'assets/images/photos/son-4.jpg' },
-        { name: 'Jonathan Israel González', photo: 'assets/images/photos/son-5.jpg' },
+        { name: 'Jonathan Israel González Ruiz', photo: 'assets/images/photos/son-5.jpg' },
       ]
     },
     events: [

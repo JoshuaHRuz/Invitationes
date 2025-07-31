@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://tu-dominio.com/api' // <-- REEMPLAZAR CON TU DOMINIO
+  apiUrl: 'https://caile.com.mx' // <-- REEMPLAZAR CON TU DOMINIO
 }; 
