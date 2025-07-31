@@ -1,0 +1,27 @@
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 2rem;
+}
+
+.contact-card {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: #fff;
+  max-width: 600px;
+
+  .description {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: #666;
+  }
+
+  strong {
+    display: block;
+    margin-bottom: 1rem;
+  }
+}
