@@ -125,6 +125,10 @@ export class InvitationDataService {
     },
     rsvp: {
       whatsappNumber: "+524422857766"
+    },
+    assets: {
+      flowerCorner: 'assets/images/elements/flower-corner.png',
+      flowerDivider: 'assets/images/elements/flower-divider.png'
     }
   };
 

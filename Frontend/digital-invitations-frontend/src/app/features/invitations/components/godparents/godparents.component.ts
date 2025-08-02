@@ -12,10 +12,12 @@ import { InvitationData } from '../../../../core/models/invitation.model';
 })
 export class GodparentsComponent implements OnInit {
   godparents!: InvitationData['godparents'];
+  invitationData!: InvitationData;
 
   constructor(private invitationDataService: InvitationDataService) {}
 
   ngOnInit(): void {
-    this.godparents = this.invitationDataService.getInvitationData().godparents;
+    this.invitationData = this.invitationDataService.getInvitationData();
+    this.godparents = this.invitationData.godparents;
   }
 } 

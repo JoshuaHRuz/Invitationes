@@ -20,7 +20,7 @@
             </div>
         </div>
         <div *ngIf="children && children.length > 0" class="children-section text-center">
-            <img src="assets/images/elements/flower-divider.png" class="flower-divider" alt="Adorno floral">
+            <img [src]="invitationData.assets?.flowerDivider" class="flower-divider" alt="Adorno floral">
             <h2 class="section-title">Nuestros Hijos</h2>
             <div class="divider"></div>
             <div class="children-carousel-container">

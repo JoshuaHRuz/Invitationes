@@ -83,4 +83,8 @@ export interface InvitationData {
   rsvp: {
     whatsappNumber: string;
   };
+  assets?: {
+    flowerCorner: string;
+    flowerDivider: string;
+  };
 } 

@@ -12,10 +12,12 @@ import { InvitationData } from '../../../../core/models/invitation.model';
 })
 export class PhotoGalleryComponent implements OnInit {
   photos!: InvitationData['photoGallery'];
+  invitationData!: InvitationData;
 
   constructor(private invitationDataService: InvitationDataService) {}
 
   ngOnInit(): void {
-    this.photos = this.invitationDataService.getInvitationData().photoGallery;
+    this.invitationData = this.invitationDataService.getInvitationData();
+    this.photos = this.invitationData.photoGallery;
   }
 } 
