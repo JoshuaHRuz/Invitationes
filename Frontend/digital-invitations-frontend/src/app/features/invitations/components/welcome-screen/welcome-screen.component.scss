@@ -101,4 +101,25 @@
     border-color: theme.$invitation-secondary-color;
     transform: scale(1.05);
   }
+}
+
+.rings-image {
+  width: auto;
+  height: 120px;
+  margin: 2rem auto;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    height: 100px;
+  }
+
+  @media (max-width: 480px) {
+    height: 80px;
+  }
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
 } 
