@@ -1,7 +1,13 @@
 <nav class="navbar">
   <div class="container">
-    <a class="navbar-brand" routerLink="/">Invitaciones Digitales</a>
-    <div class="navbar-links">
+    <a class="navbar-brand" routerLink="/">
+      <img src="assets/images/elements/caile-logo.png" alt="CAILE" class="navbar-logo">
+    </a>
+    <button class="navbar-toggler" (click)="toggleMenu()" aria-label="Abrir menú de navegación">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
+    <div class="navbar-links" [class.open]="menuOpen">
       <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a>
       <a routerLink="/invitations" routerLinkActive="active">Invitaciones</a>
       <a routerLink="/pricing" routerLinkActive="active">Precios</a>

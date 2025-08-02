@@ -12,6 +12,11 @@ import { filter, map, startWith } from 'rxjs/operators';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+  menuOpen = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
   isLandingPage$: Observable<boolean>;
 
   constructor(private router: Router) {

@@ -12,14 +12,40 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+
+    @media (max-width: 768px) {
+      justify-content: center;
+    }
   }
 }
 
 .navbar-brand {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--primary-dark-color);
   text-decoration: none;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    margin: 0 auto;
+  }
+}
+
+.navbar-logo {
+  height: 60px; /* Increased height for desktop */
+  width: auto;
+  transition: transform 0.3s ease;
+
+  @media (max-width: 768px) {
+    height: 50px; /* Adjusted height for tablets and mobiles */
+  }
+
+  @media (max-width: 480px) {
+    height: 40px; /* Further adjusted height for smaller mobiles */
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .navbar-links {
@@ -59,4 +85,56 @@
 .navbar-actions {
   min-width: 150px; /* Reserve space for the button */
   text-align: right;
+
+  @media (max-width: 768px) {
+    display: none; /* Ocultar acciones en móvil */
+  }
+}
+
+/* Botón hamburguesa */
+.navbar-toggler {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: auto;
+
+  @media (max-width: 768px) {
+    display: block;
+    position: absolute;
+    right: 1rem;
+  }
+
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 4px 0;
+    background-color: var(--primary-dark-color);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+}
+
+/* Enlaces de navegación */
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--surface-color);
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    gap: 1rem;
+    display: none;
+
+    &.open {
+      display: flex;
+    }
+  }
 } 

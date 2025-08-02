@@ -10,8 +10,8 @@ export class InvitationDataService {
     couple: {
       name1: 'Jocelyn Jazmín Ruiz Chávez',
       name2: 'Hugo Israel González Mendoza',
-      vow1: '"Amor, no puedo imaginar mi futuro sin ti, agradezco a dios y a mis hermanos que nos cruzáramos en nuestros caminos, disfruto cada minuto que pasamos juntos y quiero compartir mi vida contigo, te amoooo para siempre en tus días buenos y tus días no tan buenos, en los que estaré a tu lado para recordarte que vendrán tiempos mejores."',
-      vow2: '"Amor no tengo duda de que llegaste en el momento preciso y que fue Dios quién te envió. Siempre le estaré agradecido por enviarme tremendo Ángel. En todo momento me he sentido afortunado de que podamos recorrer juntos este camino llamada vida y estoy más que emocionado de continuar el trayecto en esta nueva etapa. Estoy contigo en las buenas y más aún en las no tan buenas, tomando tu mano para formar ese equipo que se enfrentara a cualquier reto de la vida."'
+      vow1: '"Amor, no puedo imaginar mi futuro sin ti, agradezco a Dios que nos cruzáramos en nuestros caminos, disfruto cada minuto que pasamos juntos y quiero compartir mi vida contigo, te amoooo para siempre en tus días buenos y tus días no tan buenos, en los que estaré a tu lado para recordarte que vendrán tiempos mejores."',
+      vow2: '"Amor no tengo duda de que llegaste en el momento preciso y que fue Dios quién te envió. Siempre le estaré agradecido. En todo momento me he sentido afortunado de que podamos recorrer juntos este camino llamada vida y estoy más que emocionado de continuar el trayecto en esta nueva etapa. Estoy contigo en las buenas y más aún en las no tan buenas, tomando tu mano para formar ese equipo que se enfrentara a cualquier reto de la vida."',
     },
     eventTitle: 'Bodas de Plata de Jocelyn y Hugo',
     fullEventTitle: 'Bodas de Plata<br>Jocelyn y Hugo',
@@ -36,8 +36,8 @@ export class InvitationDataService {
       },
       {
         name: 'Lugar del evento',
-        location: 'Campestre Italiana',
-        address: 'Calle boticelli 181. Campestre Italiana.',
+        location: 'Casa Ejidal Casa Blanca.',
+        address: 'Calle boticelli 187. Campestre Italiana. Qro, qro',
         time: '',
         mapUrl: 'https://maps.google.com/?q=20.544497,-100.374336',
         imageUrl: '/assets/images/photos/venue.png',
@@ -49,10 +49,10 @@ export class InvitationDataService {
       },
       {
         name: 'Hospedaje cercano',
-        location: 'Motel Cimatario',
-        address: 'Libramiento Sur Pte 1201, Villas del Cimatario, Casa Blanca, 76080 Santiago de Querétaro, Qro.',
+        location: 'Hotel Ibis Querétaro',
+        address: 'Prol. Bernardo Quintana 302 Col, Centro Sur, 76090 Santiago de Querétaro, Qro.',
         time: '',
-        mapUrl: 'https://maps.app.goo.gl/pDh2R9dp8xC7uavv5?g_st=aw',
+        mapUrl: 'https://maps.app.goo.gl/tJ63mnRAybKZnqENA?g_st=aw',
         imageUrl: '/assets/images/photos/venue2.png',
         imageOrder: 'right', // Asegura el orden alternado en escritorio
         //dressCode: {
@@ -62,10 +62,10 @@ export class InvitationDataService {
       },
       {
         name: 'Hospedaje cercano',
-        location: 'RDQ Motel Real de Querétaro',
-        address: 'Calle Lib. Sur-Poniente 850, Villas del Cimatario, San Andres, 76087 Santiago de Querétaro, Qro.',
+        location: 'Hotel Florencia By Marho Hotels',
+        address: 'Prol. Av. Zaragoza 101-Pte, Jardines de la Hacienda, 76180 Santiago de Querétaro, Qro.',
         time: '',
-        mapUrl: 'https://maps.app.goo.gl/siq8sk3BCrjJiAVb9?g_st=aw', 
+        mapUrl: 'https://maps.app.goo.gl/b5SkP8mmnBXncJr9A', 
         imageUrl: '/assets/images/photos/venue3.png',
         imageOrder: 'left', // Asegura el orden alternado en escritorio
         //dressCode: {
@@ -91,10 +91,10 @@ export class InvitationDataService {
       { time: '21:20', title: '¡Disfruta la Fiesta!', icon: '/assets/icons/music-dance.png' }
     ],
     photoGallery: [
+      { src: '/assets/images/photos/couple-9.jpg', alt: 'Foto de galería 3' },
       { src: '/assets/images/photos/couple-7.jpg', alt: 'Foto de galería 1' },
       { src: '/assets/images/photos/couple-8.jpg', alt: 'Foto de galería 2' },
-      { src: '/assets/images/photos/couple-9.jpg', alt: 'Foto de galería 3' },
-      { src: '/assets/images/photos/couple-10.jpg', alt: 'Foto de galería 4' },
+      { src: '/assets/images/photos/couple-11.jpg', alt: 'Foto de galería 4' },
 
     ],
     giftRegistry: {
