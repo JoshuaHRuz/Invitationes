@@ -31,7 +31,8 @@ export interface InvitationData {
     vow2: string;
   };
   eventTitle: string;
-  fullEventTitle: string;
+  eventMainTitle: string;
+  eventCoupleNamesTitle: string;
   date: string; // Formato YYYY-MM-DDTHH:mm:ss
   story: {
     mainImageUrl: string;

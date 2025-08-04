@@ -16,16 +16,31 @@
 
 .welcome-title {
   font-family: theme.$invitation-font-serif;
-  font-size: 4rem;
+  font-size: 6rem; /* 4rem * 1.5 */
   color: theme.$invitation-text-color;
   line-height: 1.2;
 
   @media (max-width: 768px) {
-    font-size: 3rem;
+    font-size: 4.5rem; /* 3rem * 1.5 */
   }
 
   @media (max-width: 480px) {
+    font-size: 3rem; /* 2rem * 1.5 */
+  }
+}
+
+.welcome-subtitle {
+  font-family: theme.$invitation-font-serif;
+  font-size: 3rem;
+  color: theme.$invitation-text-color;
+  line-height: 1.2;
+
+  @media (max-width: 768px) {
     font-size: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
   }
 }
 

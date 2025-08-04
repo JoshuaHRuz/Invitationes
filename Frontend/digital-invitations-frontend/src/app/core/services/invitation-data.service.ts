@@ -11,10 +11,11 @@ export class InvitationDataService {
       name1: 'Jocelyn Jazmín Ruiz Chávez',
       name2: 'Hugo Israel González Mendoza',
       vow1: '"Amor, no puedo imaginar mi futuro sin ti, agradezco a Dios que nos cruzáramos en nuestros caminos, disfruto cada minuto que pasamos juntos y quiero compartir mi vida contigo, te amoooo para siempre en tus días buenos y tus días no tan buenos, en los que estaré a tu lado para recordarte que vendrán tiempos mejores."',
-      vow2: '"Amor no tengo duda de que llegaste en el momento preciso y que fue Dios quién te envió. Siempre le estaré agradecido. En todo momento me he sentido afortunado de que podamos recorrer juntos este camino llamada vida y estoy más que emocionado de continuar el trayecto en esta nueva etapa. Estoy contigo en las buenas y más aún en las no tan buenas, tomando tu mano para formar ese equipo que se enfrentara a cualquier reto de la vida."',
+      vow2: '"Amor no tengo duda de que llegaste en el momento preciso y que fue Dios quién te envió. Siempre le estaré agradecido. En todo momento me he sentido afortunado de que podamos recorrer juntos este camino llamado vida y estoy más que emocionado de continuar el trayecto en esta nueva etapa. Estoy contigo en las buenas y más aún en las no tan buenas, tomando tu mano para formar ese equipo que se enfrentara a cualquier reto de la vida."',
     },
     eventTitle: 'Bodas de Plata de Jocelyn y Hugo',
-    fullEventTitle: 'Bodas de Plata<br>Jocelyn y Hugo',
+    eventMainTitle: 'Bodas de Plata',
+    eventCoupleNamesTitle: 'Jocelyn y Hugo',
     date: '2025-09-20T12:00:00',
     story: {
       mainImageUrl: 'assets/images/photos/main-image.jpeg',
@@ -40,7 +41,7 @@ export class InvitationDataService {
         address: 'Calle boticelli 187. Campestre Italiana. Qro, qro',
         time: '',
         mapUrl: 'https://maps.google.com/?q=20.544497,-100.374336',
-        imageUrl: '/assets/images/photos/venue.png',
+        imageUrl: '/assets/images/photos/venue.jpeg',
         imageOrder: 'left', // Asegura el orden alternado en escritorio
         //dressCode: {
         //  title: 'Vestimenta Formal',

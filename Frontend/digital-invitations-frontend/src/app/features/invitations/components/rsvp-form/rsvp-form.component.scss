@@ -127,7 +127,11 @@
   &:focus { outline: none; }
   &[readonly] { background: transparent; }
 }
-
+.flower-divider {
+  width: 100%;
+  max-width: 300px; /* Duplicando el tamaño */
+  margin: 2rem;
+}
 .attendance-options {
   display: flex;
   gap: 1.5rem;

@@ -1,5 +1,7 @@
 <section class="story-section">
     <div class="container" *ngIf="invitationData">
+        <img [src]="invitationData.assets?.flowerDivider" class="flower-divider" alt="Adorno floral">
+
         <div class="header-story text-center">
             <h2 class="section-title">Bodas de Plata</h2>
             <img [src]="invitationData.story.mainImageUrl" class="main-image img-fluid" alt="{{ invitationData.couple.name1 }} y {{ invitationData.couple.name2 }}">
