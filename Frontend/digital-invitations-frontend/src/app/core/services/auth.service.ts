@@ -52,6 +52,14 @@ export class AuthService {
   getToken(): string | null {
     return localStorage.getItem('accessToken');
   }
+
+  getRole(): string | null {
+    return localStorage.getItem('role');
+  }
+
+  isLoggedIn(): boolean {
+    return !!this.getToken();
+  }
 }
 
 
