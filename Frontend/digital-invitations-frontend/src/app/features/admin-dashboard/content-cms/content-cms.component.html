@@ -1,0 +1,144 @@
+<app-navbar></app-navbar>
+<div class="content-cms" style="margin-top:100px;">
+  <h2>Gestión de Contenido</h2>
+  <div class="toolbar card">
+    <label>Página</label>
+    <select [(ngModel)]="selectedPage" (change)="onPageChange()">
+      <option *ngFor="let p of pages" [value]="p">{{ p }}</option>
+    </select>
+  </div>
+
+  <div class="card new-block">
+    <h3>Nuevo bloque</h3>
+    <div class="grid">
+      <div>
+        <label>Tipo</label>
+        <select [(ngModel)]="newBlock.blockType">
+          <option *ngFor="let t of blockTypes" [value]="t">{{ t }}</option>
+        </select>
+      </div>
+      <div>
+        <label>Título</label>
+        <input [(ngModel)]="newBlock.title">
+      </div>
+      <div>
+        <label>Subtítulo</label>
+        <input [(ngModel)]="newBlock.subtitle">
+      </div>
+      <div>
+        <label>Contenido (HTML)</label>
+        <textarea [(ngModel)]="newBlock.contentHtml"></textarea>
+      </div>
+      <div>
+        <label>Imagen</label>
+        <div class="file-input">
+          <input type="file" (change)="onUpload($event)">
+          <span>Elegir imagen</span>
+        </div>
+      </div>
+      <div>
+        <label>Imagen a la</label>
+        <select [(ngModel)]="newBlock.imageSide">
+          <option [ngValue]="'left'">Izquierda</option>
+          <option [ngValue]="'right'">Derecha</option>
+        </select>
+      </div>
+      <div>
+        <label>Orden</label>
+        <input type="number" [(ngModel)]="newBlock.orderIndex">
+      </div>
+      <label>
+        <input type="checkbox" [(ngModel)]="newBlock.active"> Activo
+      </label>
+    </div>
+    <div class="actions">
+      <button class="btn btn-primary" (click)="create()">Agregar bloque</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Bloques</h3>
+    <div cdkDropList (cdkDropListDropped)="reorder($event)">
+      <div class="item" *ngFor="let b of blocks" cdkDrag>
+        <span class="drag-handle" cdkDragHandle>↕</span>
+        <div class="grid">
+          <div>
+            <label>Tipo</label>
+            <select [(ngModel)]="b.blockType">
+              <option *ngFor="let t of blockTypes" [value]="t">{{ t }}</option>
+            </select>
+          </div>
+          <div>
+            <label>Título</label>
+            <input [(ngModel)]="b.title">
+          </div>
+          <div>
+            <label>Subtítulo</label>
+            <input [(ngModel)]="b.subtitle">
+          </div>
+          <div>
+            <label>Contenido (HTML)</label>
+            <textarea [(ngModel)]="b.contentHtml"></textarea>
+          </div>
+          <!-- FEATURES editor -->
+          <ng-container *ngIf="b.blockType==='features'">
+            <div class="features" style="grid-column:1 / -1;">
+              <h4>Features</h4>
+              <button class="btn btn-outline" (click)="addFeature(b)">Agregar feature</button>
+              <div class="feature-item" *ngFor="let f of getFeatures(b); let i = index" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px;">
+                <input [(ngModel)]="f.icon" placeholder="Icon URL (opcional)" (ngModelChange)="updateFeatures(b)">
+                <input [(ngModel)]="f.title" placeholder="Título" (ngModelChange)="updateFeatures(b)">
+                <input [(ngModel)]="f.description" placeholder="Descripción" (ngModelChange)="updateFeatures(b)">
+                <button class="btn btn-danger" (click)="removeFeature(b,i)">Quitar</button>
+              </div>
+              <div class="actions"><button class="btn btn-primary" (click)="saveFeatures(b)">Guardar features</button></div>
+            </div>
+          </ng-container>
+
+          <!-- FAQ editor -->
+          <ng-container *ngIf="b.blockType==='faq'">
+            <div class="faq" style="grid-column:1 / -1;">
+              <h4>FAQ</h4>
+              <button class="btn btn-outline" (click)="addFaq(b)">Agregar pregunta</button>
+              <div class="faq-item" *ngFor="let q of getFaq(b); let i = index" style="display:grid;grid-template-columns:1fr;gap:8px;margin-top:8px;">
+                <input [(ngModel)]="q.question" placeholder="Pregunta" (ngModelChange)="updateFaq(b)">
+                <textarea [(ngModel)]="q.answer" placeholder="Respuesta" (ngModelChange)="updateFaq(b)"></textarea>
+                <button class="btn btn-danger" (click)="removeFaq(b,i)">Quitar</button>
+              </div>
+              <div class="actions"><button class="btn btn-primary" (click)="saveFaq(b)">Guardar FAQ</button></div>
+            </div>
+          </ng-container>
+          <div>
+            <label>Imagen</label>
+            <div class="file-input">
+              <input type="file" (change)="onUpload($event, b)">
+              <span>Elegir imagen</span>
+            </div>
+            <div class="preview-wrapper" *ngIf="b.imageUrl">
+              <img [src]="b.imageUrl" class="preview thumb">
+            </div>
+          </div>
+          <div>
+            <label>Imagen a la</label>
+            <select [(ngModel)]="b.imageSide">
+              <option [ngValue]="'left'">Izquierda</option>
+              <option [ngValue]="'right'">Derecha</option>
+            </select>
+          </div>
+          <div>
+            <label>Orden</label>
+            <input type="number" [(ngModel)]="b.orderIndex">
+          </div>
+          <label>
+            <input type="checkbox" [(ngModel)]="b.active"> Activo
+          </label>
+        </div>
+        <div class="actions">
+          <button class="btn btn-primary" (click)="save(b)">Guardar</button>
+          <button class="btn btn-danger" (click)="remove(b.id)">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

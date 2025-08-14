@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+<div class="pages-cms" style="margin-top:100px;">
+  <h2>Gestión de Páginas</h2>
+  <div class="card">
+    <h3>Nueva página</h3>
+    <div class="grid">
+      <div>
+        <label>Identificador</label>
+        <input [(ngModel)]="newPage.page" placeholder="about/services/team/...">
+      </div>
+      <div>
+        <label>Título de menú</label>
+        <input [(ngModel)]="newPage.menuTitle" placeholder="Nosotros/Servicios/...">
+      </div>
+      <div>
+        <label>Orden</label>
+        <input type="number" [(ngModel)]="newPage.orderIndex">
+      </div>
+      <label>
+        <input type="checkbox" [(ngModel)]="newPage.enabled"> Habilitada
+      </label>
+    </div>
+    <div class="actions">
+      <button class="btn btn-primary" (click)="create()">Agregar página</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Páginas</h3>
+    <div cdkDropList (cdkDropListDropped)="reorder($event)">
+      <div class="item" *ngFor="let p of pages" cdkDrag>
+        <span class="drag-handle" cdkDragHandle>↕</span>
+        <div class="grid">
+          <div>
+            <label>Identificador</label>
+            <input [(ngModel)]="p.page">
+          </div>
+          <div>
+            <label>Título de menú</label>
+            <input [(ngModel)]="p.menuTitle">
+          </div>
+          <div>
+            <label>Orden</label>
+            <input type="number" [(ngModel)]="p.orderIndex">
+          </div>
+          <label>
+            <input type="checkbox" [(ngModel)]="p.enabled"> Habilitada
+          </label>
+        </div>
+        <div class="actions">
+          <button class="btn btn-primary" (click)="save(p)">Guardar</button>
+          <button class="btn btn-danger" (click)="remove(p.id)">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
