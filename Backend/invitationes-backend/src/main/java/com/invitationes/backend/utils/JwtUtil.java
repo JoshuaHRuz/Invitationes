@@ -3,9 +3,13 @@ package com.invitationes.backend.utils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import io.jsonwebtoken.io.Decoders;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import javax.crypto.SecretKey;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +25,42 @@ public class JwtUtil {
     private long expiration;
 
     private SecretKey getSigningKey() {
-        return Keys.hmacShaKeyFor(secret.getBytes());
+        if (secret == null || secret.isBlank()) {
+            return Jwts.SIG.HS256.key().build();
+        }
+
+        byte[] keyBytes;
+        String s = secret.trim();
+        try {
+            // Intentar BASE64
+            if (s.matches("^[A-Za-z0-9+/=]+$") && s.length() % 4 == 0) {
+                keyBytes = Decoders.BASE64.decode(s);
+            } else if (s.matches("^[0-9a-fA-F]+$") && s.length() % 2 == 0) {
+                // Hex
+                keyBytes = hexToBytes(s);
+            } else {
+                keyBytes = s.getBytes(StandardCharsets.UTF_8);
+            }
+
+            if (keyBytes.length < 32) {
+                keyBytes = MessageDigest.getInstance("SHA-256").digest(keyBytes);
+            }
+        } catch (Exception ex) {
+            // Fallback seguro
+            return Jwts.SIG.HS256.key().build();
+        }
+
+        return Keys.hmacShaKeyFor(keyBytes);
+    }
+
+    private static byte[] hexToBytes(String hex) {
+        int len = hex.length();
+        byte[] data = new byte[len / 2];
+        for (int i = 0; i < len; i += 2) {
+            data[i / 2] = (byte) ((Character.digit(hex.charAt(i), 16) << 4)
+                    + Character.digit(hex.charAt(i+1), 16));
+        }
+        return data;
     }
 
     public String generateToken(String username) {
