@@ -1,0 +1,5 @@
+
+# Ignore runtime uploads
+Backend/invitationes-backend/uploads/
+Backend/invitationes-backend/src/main/resources/static/uploads/
+**/uploads/**
