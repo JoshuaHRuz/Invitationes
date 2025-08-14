@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import { LandingCmsComponent } from './landing-cms/landing-cms.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     AdminLandingComponent,
     UserManagementComponent,
     TemplateManagementComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    
   ]
 })
 export class AdminDashboardModule { } 
