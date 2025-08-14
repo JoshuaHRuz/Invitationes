@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+<div class="card" *ngIf="theme as t" style="margin-top: 100px;">
+  <h3>Estilos Globales</h3>
+  <div class="grid">
+    <div>
+      <label>Primario</label>
+      <input type="color" [(ngModel)]="t.primaryColor" (change)="onChange()">
+    </div>
+    <div>
+      <label>Secundario</label>
+      <input type="color" [(ngModel)]="t.secondaryColor" (change)="onChange()">
+    </div>
+    <div>
+      <label>Fondo</label>
+      <input type="color" [(ngModel)]="t.backgroundColor" (change)="onChange()">
+    </div>
+    <div>
+      <label>Texto</label>
+      <input type="color" [(ngModel)]="t.textColor" (change)="onChange()">
+    </div>
+    <div>
+      <label>Color títulos</label>
+      <input type="color" [(ngModel)]="t.headingsTextColor" (change)="onChange()">
+    </div>
+    <div>
+      <label>Fuente primaria</label>
+      <select [(ngModel)]="t.primaryFont" (change)="onChange()">
+        <option *ngFor="let f of fontOptions" [value]="f">{{ f }}</option>
+      </select>
+    </div>
+    <div>
+      <label>Fuente para títulos</label>
+      <select [(ngModel)]="t.headingsFont" (change)="onChange()">
+        <option *ngFor="let f of fontOptions" [value]="f">{{ f }}</option>
+      </select>
+    </div>
+    <div>
+      <label>Tamaño base</label>
+      <select [(ngModel)]="t.baseFontSize" (change)="onChange()">
+        <option *ngFor="let s of baseSizeOptions" [value]="s">{{ s }}</option>
+      </select>
+    </div>
+  </div>
+  <div class="preview">
+    <div class="preview-card" [ngStyle]="{'background-color': t.backgroundColor, 'color': t.textColor, 'font-family': t.primaryFont}">
+      <h1 [ngStyle]="{'font-family': t.headingsFont, 'color': (t.headingsTextColor || t.primaryColor)}">Vista previa de Título</h1>
+      <p>Este es un párrafo de ejemplo para comprobar el color de texto, la tipografía y el tamaño base.</p>
+      <button class="btn btn-primary" [ngStyle]="{'background-color': t.primaryColor, 'color': (t.buttonPrimaryTextColor || '#ffffff')}">Botón Primario</button>
+      <button class="btn btn-secondary" [ngStyle]="{'background-color': t.secondaryColor}">Botón Secundario</button>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" [disabled]="saving" (click)="save()">Guardar</button>
+    <span class="msg" *ngIf="message">{{ message }}</span>
+  </div>
+</div>
+<div *ngIf="!theme" class="card" style="margin-top: 100px;">
+  Cargando estilos...
+</div>
+
