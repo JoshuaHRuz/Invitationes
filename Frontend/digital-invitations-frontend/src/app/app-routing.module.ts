@@ -11,6 +11,13 @@ export const routes: Routes = [
   { path: 'admin-dashboard', canActivate: [roleGuard], data: { roles: ['ADMIN'] }, loadChildren: () => import('./features/admin-dashboard/admin-dashboard.module').then(m => m.AdminDashboardModule) },
   { path: 'invitation/:slug', loadChildren: () => import('./features/public-viewer/public-viewer.module').then(m => m.PublicViewerModule) },
   { path: 'contact', loadComponent: () => import('./features/contact/contact.component').then(m => m.ContactComponent) },
+  { path: 'about', loadComponent: () => import('./features/public-viewer/public-content.component').then(m => m.PublicContentComponent), data: { page: 'about' } },
+  { path: 'services', loadComponent: () => import('./features/public-viewer/public-content.component').then(m => m.PublicContentComponent), data: { page: 'services' } },
+  { path: 'team', loadComponent: () => import('./features/public-viewer/public-content.component').then(m => m.PublicContentComponent), data: { page: 'team' } },
+  { path: 'projects', loadComponent: () => import('./features/public-viewer/public-content.component').then(m => m.PublicContentComponent), data: { page: 'projects' } },
+  { path: 'testimonials', loadComponent: () => import('./features/public-viewer/public-content.component').then(m => m.PublicContentComponent), data: { page: 'testimonials' } },
+  { path: 'faq', loadComponent: () => import('./features/public-viewer/public-content.component').then(m => m.PublicContentComponent), data: { page: 'faq' } },
+  { path: 'pricing', loadComponent: () => import('./features/public-viewer/public-content.component').then(m => m.PublicContentComponent), data: { page: 'pricing' } },
   { path: '**', loadChildren: () => import('./features/invitations/invitations.routes').then(m => m.INVITATIONS_ROUTES) },
 ];
 

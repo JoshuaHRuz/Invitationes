@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule, NavigationEnd } from '@angular/router';
 import { Observable } from 'rxjs';
+import { PagesService, PageSetting } from '../../../core/services/pages.service';
 import { filter, map, startWith } from 'rxjs/operators';
 
 @Component({
@@ -19,13 +20,20 @@ export class NavbarComponent {
   }
   isLandingPage$: Observable<boolean>;
 
-  constructor(private router: Router) {
+  enabledPages: PageSetting[] | null = null;
+
+  constructor(private router: Router, private pages: PagesService) {
     this.isLandingPage$ = this.router.events.pipe(
       filter((e): e is NavigationEnd => e instanceof NavigationEnd),
       map(e => e.urlAfterRedirects),
       startWith(this.router.url),
       map(url => url === '/')
     );
+
+    // Cargar páginas habilitadas y suscribirse a cambios
+    this.pages.pages$.subscribe((p: PageSetting[] | null) => this.enabledPages = p);
+    this.pages.fetchEnabled();
+    this.pages.connectToUpdates();
   }
 
   get role(): string | null {
