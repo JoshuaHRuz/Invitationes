@@ -21,6 +21,7 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import java.util.Arrays;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authorization.AuthorityAuthorizationManager;
 
 @Configuration
 @EnableWebSecurity
@@ -49,6 +50,19 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/auth/**")).permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/landing/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/uploads/**").permitAll()
+                        // Admin-only endpoints
+                        .requestMatchers(new AntPathRequestMatcher("/api/admin/**")).hasRole("ADMIN")
+                        // Builder-only endpoints (admin can also access)
+                        .requestMatchers(new AntPathRequestMatcher("/api/builder/**")).hasAnyRole("BUILDER", "ADMIN")
+                        // Client endpoints
+                        .requestMatchers(new AntPathRequestMatcher("/api/client/**")).hasRole("CLIENT")
+                        // CMS (landing) admin-only changes
+                        .requestMatchers(HttpMethod.POST, "/api/landing/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/api/landing/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/api/landing/**").hasRole("ADMIN")
+                        // Generic API requires authentication
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));

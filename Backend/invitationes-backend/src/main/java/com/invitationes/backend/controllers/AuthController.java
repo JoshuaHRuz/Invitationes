@@ -4,6 +4,7 @@ import com.invitationes.backend.dtos.AuthRequest;
 import com.invitationes.backend.dtos.LoginResponse;
 import com.invitationes.backend.dtos.SignUpRequest;
 import com.invitationes.backend.models.User;
+import com.invitationes.backend.models.Role;
 import com.invitationes.backend.repositories.UserRepository;
 import com.invitationes.backend.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +45,7 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
         }
 
-        final String jwt = jwtUtil.generateToken(user.getEmail());
+        final String jwt = jwtUtil.generateToken(user.getEmail(), user.getRole() == null ? null : user.getRole().name());
 
         LoginResponse response = new LoginResponse(
                 jwt,
@@ -52,7 +53,7 @@ public class AuthController {
                 user.getId(),
                 user.getName(),
                 user.getEmail(),
-                "CLIENT"
+                user.getRole() == null ? "CLIENT" : user.getRole().name()
         );
 
         return ResponseEntity.ok(response);
@@ -68,6 +69,7 @@ public class AuthController {
         user.setEmail(signUpRequest.getEmail());
         user.setName(signUpRequest.getName());
         user.setPasswordHash(passwordEncoder.encode(signUpRequest.getPassword()));
+        user.setRole(Role.CLIENT);
 
         userRepository.save(user);
 

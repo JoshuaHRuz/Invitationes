@@ -21,6 +21,10 @@ public class User {
 
     private String name;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role = Role.CLIENT;
+
     // Relación con invitaciones (un usuario puede tener múltiples invitaciones)
     @OneToMany(mappedBy = "host")
     private List<Invitation> invitations;
