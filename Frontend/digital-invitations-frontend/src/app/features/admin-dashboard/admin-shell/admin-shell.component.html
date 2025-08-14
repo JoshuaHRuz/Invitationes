@@ -1,0 +1,20 @@
+<div class="admin-layout" [class.collapsed]="collapsed">
+  <aside class="sidebar">
+    <div class="brand">Admin</div>
+    <nav>
+      <a routerLink="/admin-dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Inicio</a>
+      <a routerLink="/admin-dashboard/landing-cms" routerLinkActive="active">Landing CMS</a>
+      <a routerLink="/admin-dashboard/content" routerLinkActive="active">Contenido</a>
+      <a routerLink="/admin-dashboard/pages" routerLinkActive="active">Páginas</a>
+      <a routerLink="/admin-dashboard/theme" routerLinkActive="active">Estilos</a>
+      <a routerLink="/admin-dashboard/users" routerLinkActive="active">Usuarios</a>
+      <a routerLink="/admin-dashboard/stats" routerLinkActive="active">Estadísticas</a>
+    </nav>
+    <button class="collapse" (click)="toggle()">{{ collapsed ? '▶' : '◀' }}</button>
+  </aside>
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+
+

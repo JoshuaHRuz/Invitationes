@@ -12,6 +12,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { LandingCmsComponent } from './landing-cms/landing-cms.component';
+import { AdminShellComponent } from './admin-shell/admin-shell.component';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { LandingCmsComponent } from './landing-cms/landing-cms.component';
     UserManagementComponent,
     TemplateManagementComponent,
     StatisticsComponent,
+    
     
   ]
 })
