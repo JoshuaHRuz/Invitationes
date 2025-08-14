@@ -12,6 +12,14 @@
       <a routerLink="/invitations" routerLinkActive="active">Invitaciones</a>
       <a routerLink="/pricing" routerLinkActive="active">Precios</a>
       <a routerLink="/contact" routerLinkActive="active">Contacto</a>
+      <!-- Menú de edición solo para ADMIN en landing -->
+      <span class="edit-menu" *ngIf="(isLandingPage$ | async) && role==='ADMIN'">
+        <button class="btn btn-outline">Editar contenido ▾</button>
+        <div class="dropdown">
+          <a routerLink="/admin-dashboard/landing-cms">Landing</a>
+          <a routerLink="/admin-dashboard/theme">Estilos globales</a>
+        </div>
+      </span>
     </div>
     <div class="navbar-actions">
       <a *ngIf="isLandingPage$ | async" routerLink="/auth/login" class="btn btn-primary">Iniciar Sesión</a>

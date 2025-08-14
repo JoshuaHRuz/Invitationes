@@ -1,5 +1,5 @@
 .navbar {
-  background-color: var(--surface-color);
+  background-color: var(--color-surface);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   padding: 1rem 0;
   position: fixed;
@@ -55,7 +55,7 @@
   a {
     font-size: 1rem;
     font-weight: 500;
-    color: var(--text-color);
+    color: var(--color-text);
     text-decoration: none;
     position: relative;
     padding-bottom: 0.5rem;
@@ -68,12 +68,12 @@
       left: 0;
       width: 0;
       height: 2px;
-      background-color: var(--primary-color);
+      background-color: var(--color-primary);
       transition: width 0.3s ease;
     }
 
     &:hover, &.active {
-      color: var(--primary-color);
+      color: var(--color-primary);
 
       &::after {
         width: 100%;
@@ -111,7 +111,7 @@
     width: 25px;
     height: 3px;
     margin: 4px 0;
-    background-color: var(--primary-dark-color);
+    background-color: var(--color-primary);
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
 }
@@ -126,7 +126,7 @@
     top: 100%;
     left: 0;
     right: 0;
-    background-color: var(--surface-color);
+    background-color: var(--color-surface);
     flex-direction: column;
     align-items: center;
     padding: 1rem 0;
@@ -137,4 +137,30 @@
       display: flex;
     }
   }
+}
+
+/* Dropdown editar contenido */
+.edit-menu {
+  position: relative;
+  display: inline-block;
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--color-surface);
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    display: none;
+    min-width: 200px;
+    padding: 8px 0;
+
+    a {
+      display: block;
+      padding: 8px 12px;
+      color: var(--color-text);
+    }
+    a:hover { background: #f3f4f6; }
+  }
+  &:hover .dropdown { display: block; }
 } 

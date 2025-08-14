@@ -27,4 +27,8 @@ export class NavbarComponent {
       map(url => url === '/')
     );
   }
+
+  get role(): string | null {
+    try { return localStorage.getItem('role'); } catch { return null; }
+  }
 } 
