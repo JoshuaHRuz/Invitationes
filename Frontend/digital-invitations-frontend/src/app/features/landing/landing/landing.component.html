@@ -1,15 +1,34 @@
 <app-navbar></app-navbar>
 
 <div class="carousel-container">
-  @for (slide of slides; track slide.color; let i = $index) {
+  @for (slide of slides; track slide.id; let i = $index) {
     <div 
       class="carousel-slide" 
-      [style.backgroundColor]="slide.color"
+      [style.backgroundColor]="slide.backgroundColor || '#4a148c'"
+      [style.backgroundImage]="slide.imageUrl ? 'url(' + slide.imageUrl + ')' : null"
       [class.active]="i === currentSlide">
+      <div class="slide-overlay" *ngIf="slide.imageUrl && (slide.overlayEnabled ?? true)" [style.background]="getOverlayGradient(slide)"></div>
       <div class="slide-content">
-        <h1>{{ slide.text }}</h1>
-        <p>Crea invitaciones memorables con nosotros.</p>
+        <h1>{{ slide.title }}</h1>
+        <p>{{ slide.subtitle }}</p>
       </div>
     </div>
   }
 </div> 
+
+<section class="landing-sections">
+  <div class="container">
+    @for (section of sections; track section.id) {
+      <div class="section" [class.inactive]="!section.active" [class.reverse]="section.imageSide==='left'">
+        <div class="text">
+          <h2>{{ section.title }}</h2>
+          <div class="html" [innerHTML]="section.contentHtml"></div>
+        </div>
+        <div class="media" *ngIf="section.imageUrl">
+          <img [src]="section.imageUrl" alt="section image">
+        </div>
+      </div>
+    }
+  </div>
+  
+</section>

@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from '../../../shared/components/navbar/navbar.component';
+import { LandingService, LandingSlide, LandingSection } from '../../../core/services/landing.service';
 
 @Component({
   selector: 'app-landing',
@@ -11,23 +12,42 @@ import { NavbarComponent } from '../../../shared/components/navbar/navbar.compon
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements OnInit, OnDestroy {
-  slides = [
-    { color: '#4a148c', text: 'Diseños Elegantes y Modernos' }, // A deep, rich purple
-    { color: '#880e4f', text: 'Personalización al Instante' }, // A sophisticated, deep pink
-    { color: '#6a1b9a', text: 'Confirma Asistencia Fácilmente' } // Our primary purple, for consistency
-  ];
+  slides: LandingSlide[] = [];
+  sections: LandingSection[] = [];
   currentSlide = 0;
   private intervalId: any;
 
+  constructor(private landingService: LandingService) {}
+
   ngOnInit() {
-    this.intervalId = setInterval(() => {
-      this.currentSlide = (this.currentSlide + 1) % this.slides.length;
-    }, 5000); // Change slide every 5 seconds
+    this.landingService.getSlides().subscribe((slides) => {
+      this.slides = slides;
+      if (this.slides.length > 0) {
+        this.intervalId = setInterval(() => {
+          this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+        }, 5000);
+      }
+    });
+    this.landingService.getSections().subscribe((sections) => {
+      this.sections = sections;
+    });
+
+    // Auto-refresco cuando el admin actualiza landing o tema
+    this.landingService.connectToUpdates().subscribe(() => {
+      this.landingService.getSlides().subscribe(s => this.slides = s);
+      this.landingService.getSections().subscribe(s => this.sections = s);
+    });
   }
 
   ngOnDestroy() {
     if (this.intervalId) {
       clearInterval(this.intervalId);
     }
+  }
+
+  getOverlayGradient(slide: LandingSlide): string {
+    const opacity = (slide.overlayOpacity ?? 0.35);
+    const endOpacity = Math.min(1, opacity + 0.2);
+    return `linear-gradient(180deg, rgba(0,0,0,${opacity}) 0%, rgba(0,0,0,${opacity}) 60%, rgba(0,0,0,${endOpacity}) 100%)`;
   }
 } 
