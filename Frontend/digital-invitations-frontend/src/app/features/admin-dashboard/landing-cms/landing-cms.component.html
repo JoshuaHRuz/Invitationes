@@ -1,0 +1,122 @@
+<app-navbar></app-navbar>
+<h2 class="cms-title" style="margin-top: 100px;">Gestión de Landing</h2>
+
+<section>
+  <h3 class="section-title">Slides del Carrusel</h3>
+    <div class="new-item card">
+    <input [(ngModel)]="newSlide.title" placeholder="Título">
+    <input [(ngModel)]="newSlide.subtitle" placeholder="Subtítulo">
+    <input [(ngModel)]="newSlide.imageUrl" placeholder="URL de imagen">
+      <label class="file-input">
+        <input type="file" (change)="onSlideFile($event)">
+        <span>Elegir imagen</span>
+      </label>
+    <div class="color-input">
+      <label>Color de fondo</label>
+      <input type="color" [(ngModel)]="newSlide.backgroundColor">
+    </div>
+    <input type="number" [(ngModel)]="newSlide.orderIndex" placeholder="Orden">
+    <label>
+      <input type="checkbox" [(ngModel)]="newSlide.active"> Activo
+    </label>
+    <label>
+      <input type="checkbox" [(ngModel)]="newSlide.overlayEnabled"> Overlay
+    </label>
+    <input type="number" step="0.05" min="0" max="1" [(ngModel)]="newSlide.overlayOpacity" placeholder="Opacidad (0-1)">
+    <div class="preview-wrapper" *ngIf="newSlide.imageUrl">
+      <img [src]="newSlide.imageUrl" alt="preview slide" class="preview thumb">
+    </div>
+    <div class="actions">
+      <button class="btn-primary" (click)="createSlide()">Agregar Slide</button>
+    </div>
+  </div>
+
+  <div class="list" cdkDropList (cdkDropListDropped)="onSlidesReorder($event)">
+    <div class="item card" *ngFor="let s of slides; let i = index" cdkDrag>
+      <span class="drag-handle" cdkDragHandle title="Arrastrar para reordenar">↕</span>
+      <input [(ngModel)]="s.title" placeholder="Título">
+      <input [(ngModel)]="s.subtitle" placeholder="Subtítulo">
+      <input [(ngModel)]="s.imageUrl" placeholder="URL de imagen">
+      <label class="file-input">
+        <input type="file" (change)="onSlideFile($event, s)">
+        <span>Elegir imagen</span>
+      </label>
+      <div class="color-input">
+        <label>Color de fondo</label>
+        <input type="color" [(ngModel)]="s.backgroundColor">
+      </div>
+      <input type="number" [(ngModel)]="s.orderIndex" placeholder="Orden">
+      <label>
+        <input type="checkbox" [(ngModel)]="s.active"> Activo
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="s.overlayEnabled"> Overlay
+      </label>
+      <input type="number" step="0.05" min="0" max="1" [(ngModel)]="s.overlayOpacity" placeholder="Opacidad (0-1)">
+      <div class="preview-wrapper" *ngIf="s.imageUrl">
+        <img [src]="s.imageUrl" alt="preview slide" class="preview thumb">
+      </div>
+      <div class="actions">
+        <button class="btn-primary" (click)="updateSlide(s)">Guardar</button>
+        <button class="btn-danger" (click)="deleteSlide(s.id)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3 class="section-title">Secciones debajo del Carrusel</h3>
+  <div class="new-item card">
+    <input [(ngModel)]="newSection.title" placeholder="Título">
+    <textarea [(ngModel)]="newSection.contentHtml" placeholder="Contenido (HTML permitido)"></textarea>
+    <input [(ngModel)]="newSection.imageUrl" placeholder="URL de imagen (opcional)">
+    <label class="file-input">
+      <input type="file" (change)="onSectionFile($event)">
+      <span>Elegir imagen</span>
+    </label>
+    <input type="number" [(ngModel)]="newSection.orderIndex" placeholder="Orden">
+    <label>
+      <input type="checkbox" [(ngModel)]="newSection.active"> Activo
+    </label>
+    <div class="preview-wrapper" *ngIf="newSection.imageUrl">
+      <img [src]="newSection.imageUrl" alt="preview section" class="preview thumb">
+    </div>
+    <div class="actions">
+      <button class="btn-primary" (click)="createSection()">Agregar Sección</button>
+    </div>
+  </div>
+
+  <div class="list" cdkDropList (cdkDropListDropped)="onSectionsReorder($event)">
+    <div class="item card" *ngFor="let sec of sections; let i = index" cdkDrag>
+      <span class="drag-handle" cdkDragHandle title="Arrastrar para reordenar">↕</span>
+      <input [(ngModel)]="sec.title" placeholder="Título">
+      <textarea [(ngModel)]="sec.contentHtml" placeholder="Contenido (HTML permitido)"></textarea>
+      <input [(ngModel)]="sec.imageUrl" placeholder="URL de imagen (opcional)">
+      <label class="file-input">
+        <input type="file" (change)="onSectionFile($event, sec)">
+        <span>Elegir imagen</span>
+      </label>
+      <div class="toggle">
+        <label>Posición de imagen:</label>
+        <label class="switch">
+          <input type="checkbox" [(ngModel)]="sec.imageSide" [ngModelOptions]="{standalone: true}" (change)="sec.imageSide = $event.target.checked ? 'right' : 'left'">
+          <span class="slider"></span>
+        </label>
+        <span class="toggle-label">{{ sec.imageSide === 'right' ? 'Derecha' : 'Izquierda' }}</span>
+      </div>
+      <input type="number" [(ngModel)]="sec.orderIndex" placeholder="Orden">
+      <label>
+        <input type="checkbox" [(ngModel)]="sec.active"> Activo
+      </label>
+      <div class="preview-wrapper" *ngIf="sec.imageUrl">
+        <img [src]="sec.imageUrl" alt="preview section" class="preview thumb">
+      </div>
+      <div class="actions">
+        <button class="btn-primary" (click)="updateSection(sec)">Guardar</button>
+        <button class="btn-danger" (click)="deleteSection(sec.id)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
